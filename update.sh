@@ -2,7 +2,7 @@
 
 DATE=`date +%Y%m%d`
 PN="mouse-brain-atlases"
-PV="0.1.${DATE}"
+PV="0.2.${DATE}"
 
 ./make_archives.sh "${PN}" "${PV}" || exit 1
 rsync -avP ${PN}*${PV}.tar.xz dreamhost:chymera.eu/distfiles/
