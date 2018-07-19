@@ -13,10 +13,10 @@ cp ambmc-c57bl6-model-symmet_v0.8-nii/README ambmc_README
 
 # Multiple Sizes
 ResampleImage 3 ambmc_15micron.nii _ambmc_40micron.nii 0.04x0.04x0.04 size=1 spacing=0 4
-SmoothImage 3 _ambmc_40micron.nii 0.16 ambmc_40micron.nii
+SmoothImage 3 _ambmc_40micron.nii 0.08 ambmc_40micron.nii
 rm _ambmc_40micron.nii
 ResampleImage 3 ambmc_15micron.nii _ambmc_200micron.nii 0.2x0.2x0.2 size=1 spacing=0 4
-SmoothImage 3 _ambmc_200micron.nii 0.8 ambmc_200micron.nii
+SmoothImage 3 _ambmc_200micron.nii 0.4 ambmc_200micron.nii
 fslmaths ambmc_200micron.nii -thr $(fslstats ambmc_200micron.nii -P 77) -bin _ambmc_200micron_mask.nii
 fslmaths 'ambmc_200micron.nii' -mas '_ambmc_200micron_mask.nii' ambmc_200micron.nii
 rm _ambmc_200micron.nii
