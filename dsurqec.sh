@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set FSL Variable
-OLD_FSLOUTPUTTYPE=(echo $FSLOUTPUTTYPE)
+OLD_FSLOUTPUTTYPE=$FSLOUTPUTTYPE
 FSLOUTPUTTYPE=NIFTI
 
 #!/bin/bash
@@ -35,4 +35,4 @@ fslmaths 'dsurqec_200micron.nii' -mas 'dsurqec_200micron_mask.nii' 'dsurqec_200m
 rm _dsurqec_200micron.nii
 
 # Reset FSL Variable
-FSLOUTPUTTYPE=(echo $OLD_FSLOUTPUTTYPE)
+FSLOUTPUTTYPE=$OLD_FSLOUTPUTTYPE

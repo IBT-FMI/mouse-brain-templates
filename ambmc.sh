@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set FSL Variable
-OLD_FSLOUTPUTTYPE=(echo $FSLOUTPUTTYPE)
+OLD_FSLOUTPUTTYPE=$FSLOUTPUTTYPE
 FSLOUTPUTTYPE=NIFTI
 
 # Download Upstream Template
