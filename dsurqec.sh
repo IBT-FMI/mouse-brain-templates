@@ -25,7 +25,9 @@ fslorient -copysform2qform dsurqec_40micron_mask.nii
 # Please use the original labels map even with lower resolution data.
 ResampleImage 3 dsurqec_40micron.nii _dsurqec_200micron.nii 0.2x0.2x0.2 size=1 spacing=0 4
 SmoothImage 3 _dsurqec_200micron.nii 0.4 dsurqec_200micron.nii
+fslorient -copyqform2sform dsurqec_200micron.nii
 ResampleImage 3 dsurqec_40micron_mask.nii dsurqec_200micron_mask.nii 0.2x0.2x0.2 size=1 spacing=0 1
+fslorient -copyqform2sform dsurqec_200micron_mask.nii
 
 # Apply Masks
 fslmaths 'dsurqec_40micron.nii' -mas 'dsurqec_40micron_mask.nii' 'dsurqec_40micron_masked.nii'
