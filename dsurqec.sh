@@ -33,6 +33,12 @@ fslorient -copyqform2sform dsurqec_200micron_mask.nii
 fslmaths 'dsurqec_40micron.nii' -mas 'dsurqec_40micron_mask.nii' 'dsurqec_40micron_masked.nii'
 fslmaths 'dsurqec_200micron.nii' -mas 'dsurqec_200micron_mask.nii' 'dsurqec_200micron_masked.nii'
 
+# Make Legacy AMBMC analogue
+fslswapdim dsurqec_200micron_masked.nii x -y z ldsurqec_200micron_masked.nii
+fslorient -deleteorient ldsurqec_200micron_masked.nii
+fslchpixdim ldsurqec_200micron_masked.nii 2.0 2.0 2.0
+fslorient -copyqform2sform ldsurqec_200micron_mask.nii
+
 # Cleanup
 rm _dsurqec_200micron.nii
 
