@@ -7,31 +7,38 @@ FSLOUTPUTTYPE=NIFTI
 # Download Upstream Template
 wget http://imaging.org.au/uploads/AMBMC/ambmc-c57bl6-model-symmet_v0.8-nii.tar.gz
 tar xvzf ambmc-c57bl6-model-symmet_v0.8-nii.tar.gz
-cp ambmc-c57bl6-model-symmet_v0.8-nii/ambmc-c57bl6-model-symmet_v0.8.nii ambmc_15micron.nii
+cp ambmc-c57bl6-model-symmet_v0.8-nii/ambmc-c57bl6-model-symmet_v0.8.nii _ambmc_15micron.nii
 cp ambmc-c57bl6-model-symmet_v0.8-nii/COPYING ambmc_COPYING
 cp ambmc-c57bl6-model-symmet_v0.8-nii/README ambmc_README
 
 # Multiple Sizes
-ResampleImage 3 ambmc_15micron.nii _ambmc_40micron.nii 0.04x0.04x0.04 size=1 spacing=0 4
-SmoothImage 3 _ambmc_40micron.nii 0.08 ambmc_40micron.nii
-rm _ambmc_40micron.nii
-ResampleImage 3 ambmc_15micron.nii _ambmc_200micron.nii 0.2x0.2x0.2 size=1 spacing=0 4
-SmoothImage 3 _ambmc_200micron.nii 0.4 ambmc_200micron.nii
-fslmaths ambmc_200micron.nii -thr $(fslstats ambmc_200micron.nii -P 77) -bin _ambmc_200micron_mask.nii
-fslmaths 'ambmc_200micron.nii' -mas '_ambmc_200micron_mask.nii' ambmc_200micron.nii
-rm _ambmc_200micron.nii
-rm _ambmc_200micron_mask.nii
+ResampleImage 3 _ambmc_15micron.nii __ambmc_40micron.nii 0.04x0.04x0.04 size=1 spacing=0 4
+SmoothImage 3 __ambmc_40micron.nii 0.08 _ambmc_40micron.nii
+rm __ambmc_40micron.nii
+ResampleImage 3 _ambmc_15micron.nii __ambmc_200micron.nii 0.2x0.2x0.2 size=1 spacing=0 4
+SmoothImage 3 __ambmc_200micron.nii 0.4 _ambmc_200micron.nii
+fslmaths _ambmc_200micron.nii -thr $(fslstats ambmc_200micron.nii -P 77) -bin __ambmc_200micron_mask.nii
+fslmaths '_ambmc_200micron.nii' -mas '__ambmc_200micron_mask.nii' _ambmc_200micron.nii
 
 # Legacy Header Manipulation
-cp ambmc_15micron.nii lambmc_15micron.nii
+cp _ambmc_15micron.nii lambmc_15micron.nii
 fslorient -deleteorient lambmc_15micron.nii
 fslchpixdim lambmc_15micron.nii 0.15 0.15 0.15
-cp ambmc_40micron.nii lambmc_40micron.nii
+cp _ambmc_40micron.nii lambmc_40micron.nii
 fslorient -deleteorient lambmc_40micron.nii
 fslchpixdim lambmc_40micron.nii 0.4 0.4 0.4
-cp ambmc_200micron.nii lambmc_200micron.nii
+cp _ambmc_200micron.nii lambmc_200micron.nii
 fslorient -deleteorient lambmc_200micron.nii
 fslchpixdim lambmc_200micron.nii 2 2 2
 
+# Make RAS
+fslswapdim _ambmc_15micron.nii x -y z ambmc_15micron.nii
+fslorient -setsform 0.015 0 0 5.094 0 0.015 0 9.8355 0 0 0.015 -3.726 0 0 0 1 ambmc_15micron.nii.gz
+fslswapdim _ambmc_40micron.nii x -y z ambmc_40micron.nii
+fslorient -setsform 0.04 0 0 5.084 0 0.04 0 9.8255 0 0 0.04 -3.726 0 0 0 1 ambmc_40micron.nii.gz
+fslswapdim _ambmc_200micron.nii x -y z ambmc_200micron.nii
+fslorient -setsform 0.2 0 0 -4.924 0 0.2 0 -9.5855 0 0 0.2 -3.726 0 0 0 1 ambmc_200micron.nii.gz
+
 # Cleanup
 rm -rf ambmc-c57bl6-model-symmet_v0.8-nii*
+rm -rf _*ambmc*nii*
