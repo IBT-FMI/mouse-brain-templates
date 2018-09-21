@@ -39,6 +39,14 @@ fslorient -setsform 0.04 0 0 5.084 0 0.04 0 9.8255 0 0 0.04 -3.726 0 0 0 1 ambmc
 fslswapdim _ambmc_200micron.nii x -y z ambmc_200micron.nii
 fslorient -setsform 0.2 0 0 -4.924 0 0.2 0 -9.5855 0 0 0.2 -3.726 0 0 0 1 ambmc_200micron.nii.gz
 
+# Make Mask
+fslmaths ambmc_200micron.nii.gz -thr 10 -bin ambmc_200micron_mask.nii.gz
+fslmaths ambmc_40micron.nii.gz -thr 10 -bin ambmc_40micron_mask.nii.gz
+fslmaths ambmc_15micron.nii.gz -thr 10 -bin ambmc_15micron_mask.nii.gz
+fslmaths lambmc_200micron.nii.gz -thr 10 -bin lambmc_200micron_mask.nii.gz
+fslmaths lambmc_40micron.nii.gz -thr 10 -bin lambmc_40micron_mask.nii.gz
+fslmaths lambmc_15micron.nii.gz -thr 10 -bin lambmc_15micron_mask.nii.gz
+
 # Cleanup
 rm -rf ambmc-c57bl6-model-symmet_v0.8-nii*
 rm -rf _*ambmc*nii*
