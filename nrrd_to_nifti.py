@@ -5,8 +5,10 @@ import nibabel
 import numpy as np
 import sys
 
-path = os.path.dirname(sys.argv[0])
-files = glob(path + '*.nrrd')
+#path = os.path.dirname(sys.argv[0])
+path = os.path.abspath('.')
+files = glob(path + '/*.nrrd')
+
 
 for file in files:
 	print("Reading " + file)
@@ -37,7 +39,9 @@ for file in files:
 	
 	img = nibabel.Nifti1Image(data,affine_matrix)
 	nibabel.save(img,os.path.join(path, os.path.basename(file).split(".")[0] + '.nii.gz'))
- 
+	
+	#Delete Nrrd-File
+	os.remove(file)
 
 
 
