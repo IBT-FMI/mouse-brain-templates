@@ -14,6 +14,7 @@ Additionally, standard space modifications are applied, e.g. to conform to the N
 	* `lambmc` -  With deleted orientation (legacy).
 * [DSURQE](http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti):
  	* `dsurqe` - Affine coordinates relative to Paxinos Bregma origin.
+	* `ldsurqe` - With deleted orientation (analogous to `lambmc` and created for comparison with it).
 * [ABI](http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/average_template/average_template_10.nrrd):
  	* `abi` - Oriented in RAS space.
 
