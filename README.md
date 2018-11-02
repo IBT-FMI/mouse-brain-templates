@@ -2,7 +2,7 @@
 
 Scripts to build the mouse brain atlases collection used by [SAMRI](https://github.com/IBT-FMI/SAMRI) and more generally by the ETH and Univeristy of Zurich Animal Imaging Center.
 
-**N.B.** None of the atlases fetched and bundled in this archive are created by us, all credit goes tot he original authors, see our [fair use and citation notice](FAIRUSE-AND-CITATION).
+**N.B.** None of the atlases fetched and bundled in this archive are created by us, all credit goes to the original authors, see our [fair use and citation notice](FAIRUSE-AND-CITATION).
 
 # Constituent Atlases
 
@@ -14,3 +14,7 @@ Additionally, standard space modifications are applied, e.g. to conform to the N
 	* `lambmc` -  With deleted orientation (legacy).
 * [DSURQE](http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti):
  	* `dsurqe` - Affine coordinates relative to Paxinos Bregma origin.
+* [ABI](http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/average_template/average_template_10.nrrd):
+ 	* `abi` - Oriented in RAS space.
+
+

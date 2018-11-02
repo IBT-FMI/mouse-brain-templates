@@ -2,4 +2,6 @@ The atlases contained herein are available for authentification-free public down
 These sources are publicly funded or nonprofit research institutions, and all credit for the atlases should be given to their original authors, e.g. via citation of their corresponding academic publications.
 Specific additional citation wishes of the authors --- if provided --- can be found along the respective atlas files. 
 
+Citation guidelines for use of the Allen mouse brain atlas can be found at: https://alleninstitute.org/legal/citation-policy/
+
 This package performs no function which cannot be performed manually by the end-user, and serves only to make the data more easily accessible for package managers and improve the quality and reproducibility of scientific research.
