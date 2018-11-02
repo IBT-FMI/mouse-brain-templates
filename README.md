@@ -1,4 +1,4 @@
-# Mouse Brain Atlases
+# Mouse Brain Atlases Generator Workflows
 
 Scripts to build the mouse brain atlases collection used by [SAMRI](https://github.com/IBT-FMI/SAMRI) and more generally by the ETH and Univeristy of Zurich Animal Imaging Center.
 
