@@ -17,7 +17,11 @@ USAGE="usage:\n\
         -c: invokes additional function that trims brain image prior to mesh creation. Identifies image boundaries (non-zero entries) and Need to specify  
         -s: size of cut in voxel
         -a: axis along which to cut (0,1,2)
+<<<<<<< HEAD
         -d: {^beginning','end'}.Direction of cut. Trim either from start of axis inwards or from end of axis inwards.
+=======
+        -d: direction of cut. 0: trim from start of axis inwards 1:trim from end of axis inwards
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
         -b: use the given mask as boundary for cut
         -h: displays help message."
 
@@ -45,7 +49,11 @@ while getopts ':i:t:bcs:a:d:m:h' flag; do
                         AXIS="$OPTARG"
                         ;;
                 d)
+<<<<<<< HEAD
                         TRIM_STARTING_FROM="$OPTARG"
+=======
+                        DIRECTION="$OPTARG"
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
                         ;;
                 m)  
                         MASK=true
@@ -71,7 +79,11 @@ if $MASK; then
         SUFFIX=_resampled.nii.gz
         MASK_NAME=$PREFIX$SUFFIX
         echo ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION size=1 spacing=0 1
+<<<<<<< HEAD
         ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION size=1 spacing=0 1
+=======
+
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 fi
 if [ "$MASK" == "false" ]; then
         NAME=($(echo $IMAGE_NAME | tr "." "\n"))
@@ -101,10 +113,17 @@ if $CUT; then
         SUFFIX_C="_cut.nii.gz"
         OUTPUTFILE=$PREFIX_C$SUFFIX_C
         if $BOUNDARY; then
+<<<<<<< HEAD
                 python -c "import make_mesh; make_mesh.cut_img_mas(\"$IMAGE_NAME\",\"$OUTPUTFILE\",$SIZE,$AXIS,\"$TRIM_STARTING_FROM\",\"$MASK_NAME\")"
                 IMAGE_NAME=$OUTPUTFILE
         else
                 python -c "import make_mesh; make_mesh.cut_img_mas(\"$IMAGE_NAME\",\"$OUTPUTFILE\",$SIZE,$AXIS,\"$TRIM_STARTING_FROM\")"
+=======
+                python -c "import make_mesh; make_mesh.cut_img_mas(\"$IMAGE_NAME\",\"$OUTPUTFILE\",$SIZE,$AXIS,$DIRECTION,\"$MASK_NAME\")"
+                IMAGE_NAME=$OUTPUTFILE
+        else
+                python -c "import make_mesh; make_mesh.cut_img_mas(\"$IMAGE_NAME\",\"$OUTPUTFILE\",$SIZE,$AXIS,$DIRECTION)"
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
                 IMAGE_NAME=$OUTPUTFILE
         fi
         echo Image cut

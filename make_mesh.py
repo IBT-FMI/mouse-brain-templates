@@ -11,6 +11,7 @@ import argparse
 #
 def remove_inner_surface(img_data,mask,treshhold=0):
 	"""
+<<<<<<< HEAD
 	Replace inner data of the given volume with a smoothed, uniform masking to avoid generation
 	of inner surface structures and staircase artifacts when using marching cube algorithm.
 	
@@ -29,6 +30,26 @@ def remove_inner_surface(img_data,mask,treshhold=0):
 		Manipulated data matrix to be used for marching cube.
 	iso_surface : float
 		Corresponding iso surface value to use for marching cube.
+=======
+	Function to replace inner data of the given volume with a smoothed, uniform masking to avoid generation
+	of inner surface structures and staircase artifacts when using marching cube algorithm
+	
+	Parameters:
+	----------
+	img_data : (X,Y,Z) array
+		input volume data to extract mesh from
+	mask : (X,Y,Z) array
+		smoothed internal mask
+	treshhold : int
+		determines isosurface and values for the inner mask
+	
+	Returns:
+	---------
+	fin : (X,Y,Z) array
+		manipulated data matrix to be used for marching cube
+	iso_surface : float
+		corresponding iso surface value to use for marching cube
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	
 	"""
 	x,y,z = numpy.shape(img_data)
@@ -58,13 +79,20 @@ def remove_inner_surface(img_data,mask,treshhold=0):
 	return(fin,iso_surface);
 
 #Either take boundary from supplied mask or if not specified, from image directly
+<<<<<<< HEAD
 def cut_img_mas(file_input,file_output,size,axis,trim_starting_from,mask = None):
 	"""
 	Trim data matrix before mesh creation. Reads in nifti file and saves the trimmed image as nifti file.
+=======
+def cut_img_mas(file_input,file_output,size,axis,direction,mask = None):
+	"""
+	Function to trim data matrix before mesh creation. Reads in nifti file and saves the trimmed image as nifti file.
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 
 	Parameters:
 	-----------
 	file_input: str
+<<<<<<< HEAD
 		File name of image to be loaded and cut (nifti format).
 	file_output: str
 		Output file name.
@@ -76,6 +104,19 @@ def cut_img_mas(file_input,file_output,size,axis,trim_starting_from,mask = None)
 		Either trim form beginning af axis inwards or from end of axis inwards.
 	mask : array, optional
 		If given, boundary of image will be determined from the mask. Needed if image has boundary with non-zero entries
+=======
+		file name of image to be loaded and cut (nifti format)
+	file_output: str
+		output file name
+	size : int
+		number of voxels to trim
+	axis : int
+		axis along which to trim (0,1,2)
+	direction : int
+		either trim form beginning af axis (0) inwards or from end of axis (1) inwards
+	mask : (X,Y,Z) array
+		optional. If given, boundary of image will be determined from the mask. Needed if image has boundary with non-zero entries
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 
 	"""
 
@@ -90,7 +131,11 @@ def cut_img_mas(file_input,file_output,size,axis,trim_starting_from,mask = None)
 		box = get_bounding_slices(mask_data)
 	else:
 		box = get_bounding_slices(img_data)
+<<<<<<< HEAD
 	img_data = cut_img(img_data,box,size,axis,trim_starting_from)
+=======
+	img_data = cut_img(img_data,box,size,axis,direction)
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	img_nifti=nibabel.Nifti1Image(img_data,None,header=header)
 	nibabel.save(img_nifti,file_output)
 	return
@@ -98,6 +143,7 @@ def cut_img_mas(file_input,file_output,size,axis,trim_starting_from,mask = None)
 #Define the boundin:g box of the data matrix. 
 def get_bounding_slices(img):
 	"""
+<<<<<<< HEAD
 	Determine the boundaries of the given image.
 	
 	Parameters:
@@ -109,6 +155,19 @@ def get_bounding_slices(img):
 	--------
 	bbox : array
 		Array of size (Dim,2) with range of indices through the matrix that contain non-zero entries along each axis.
+=======
+	Function to determine the boundaries of the given image.
+	
+	Parameters:
+	-----------
+	img : (X,Y,Z) array
+		Image data matrix of which boundaries are to be determined
+	
+	Returns:
+	--------
+	bbox : (Dim,2) array
+		array  with range of indices through the matrix that contain non-zero entries along each axis
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	
 	"""
 
@@ -130,6 +189,7 @@ def get_bounding_slices(img):
 	return bbox
 
 # Trim image along specified axis, size input = voxel
+<<<<<<< HEAD
 def cut_img(img,bbox,size,axis,trim_starting_from):
 	"""
 	Trim image data matrix.
@@ -151,16 +211,47 @@ def cut_img(img,bbox,size,axis,trim_starting_from):
 	---------
 	img : array
 		Trimmed data matrix.
+=======
+def cut_img(img,bbox,size,axis,direction):
+	"""
+	Function to trim an image data matrix.
+
+	Parameters:
+	-----------
+	img: (X,Y,Z) array
+		Image data matrix to be trimmed
+	bbox: (Dim,2) array
+		Integer values for each axis that specify bounding box of image as returend by get_bounding_slices()
+	size: int
+		number of voxels to trim
+	axis: int
+		axis along which to trim (0,1,2)
+	direction: int
+		either trim form beginning af axis inwards or from end of axis inwards
+
+	Returns:
+	---------
+	img :  (X,Y,Z) array
+		trimmed data matrix
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	
 	"""
 
 	dims = numpy.shape(img)
 	ind = bbox[axis-1]
+<<<<<<< HEAD
 	if (trim_starting_from == "beginning"):
 		new_ind = ind[0] + size
 		slc = [slice(None)] * len(img.shape)
 		slc[axis] = slice(0,new_ind)
 	elif (trim_starting_from == "end"):
+=======
+	if (direction == 0):
+		new_ind = ind[0] + size
+		slc = [slice(None)] * len(img.shape)
+		slc[axis] = slice(0,new_ind)
+	elif (direction == 1):
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 		new_ind = ind[1] - size
 		slc = [slice(None)] * len(img.shape)
 		slc[axis] = slice(new_ind,dims[axis])
@@ -169,19 +260,33 @@ def cut_img(img,bbox,size,axis,trim_starting_from):
 
 def f(i, j, k, affine):
 	"""
+<<<<<<< HEAD
 	Returns affine transformed coordinates (i,j,k) -> (x,y,z) Use to set correct coordinates and size for the mesh.
+=======
+	Returns affine transformed coordinates (i,j,k) -> (x,y,z) Use to set correct coordinates and size for the mesh
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	
 	Parameters:
 	-----------
 	i,j,k : int
+<<<<<<< HEAD
 		Integer coordinates of points in 3D space to be transformed.
 	affine : array
 		4x4 matrix containing affine transformation information of Nifti-Image.
+=======
+		integer coordinates of points in 3D space to be transformed
+	affine: (4,4) array
+		4x4 matrix containing affine transformation information of Nifti-Image
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	
 	Returns:
 	--------
 	x,y,z : int
+<<<<<<< HEAD
 		Affine transformed coordinates of input points.
+=======
+		affine transformed coordinates of input points
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	
 	"""
 
@@ -192,6 +297,7 @@ def f(i, j, k, affine):
 #Writes an .obj file for the output of marching cube algorithm. Specify affine if needed in mesh. One = True for faces indexing starting at 1 as opposed to 0. Necessary for Blender/SurfIce
 def write_obj(name,verts,faces,normals,values,affine=None,one=False):
 	"""
+<<<<<<< HEAD
 	Write a .obj file for the output of marching cube algorithm.
 
 	Parameters:
@@ -206,6 +312,22 @@ def write_obj(name,verts,faces,normals,values,affine=None,one=False):
 		Normal direction of each vertex as returned by skimage.measure.marching_cubes_lewiner().
 	affine : array,optional
 		If given, vertices coordinates are affine transformed to create mesh with correct origin and size.
+=======
+	Write a .obj file for the output of marching cube algorithm
+
+	Parameters:
+	-----------
+	name : string
+		ouput file name
+	verts : (V,3) array
+		Spatial coordinates for vertices as returned by skimage.measure.marching_cubes_lewiner()
+	faces: (F,3) array
+		List of faces, referencing indices of verts as returned by skimage.measure.marching_cubes_lewiner()
+	normals: (V,3) array
+		Normal direction of each vertex as returned by skimage.measure.marching_cubes_lewiner()
+	affine: (4,4) array
+		optional, if specified, vertices coordinates are affine transformed to create mesh with correct origin and size
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	one : bool
 		Specify if faces values should start at 1 or at 0. Different visualization programs use different conventions.
 	
@@ -219,10 +341,17 @@ def write_obj(name,verts,faces,normals,values,affine=None,one=False):
 	else :
 		for item in verts:
 			thefile.write("v {0} {1} {2}\n".format(item[0],item[1],item[2]))
+<<<<<<< HEAD
 	print("File written 30%")
 	for item in normals:
 		thefile.write("vn {0} {1} {2}\n".format(item[0],item[1],item[2]))
 	print("File written 60%")
+=======
+	print("File 1 written 30%")
+	for item in normals:
+		thefile.write("vn {0} {1} {2}\n".format(item[0],item[1],item[2]))
+	print("File 2 written 60%")
+>>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 	for item in faces:
 		thefile.write("f {0}//{0} {1}//{1} {2}//{2}\n".format(item[0],item[1],item[2]))
 	thefile.close()
