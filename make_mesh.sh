@@ -10,7 +10,7 @@ MASK=false
 BOUNDARY=false
 
 USAGE="usage:\n\
-        'basename $0'  -i <image file> -t <treshhold> [-m <mask-file>] [-c] [-s <size> -a <axis> -d <direction>] [-b]\n\
+        'basename $0'  -i <image file> -t <treshhold> [-m <mask-file>] [-c] [-s <size> -a <axis> -d <direction>] [-b] [-x]\n\
         -i: Image file name to create mesh from. Nifti format required.
         -t: Treshhold for marching cube algorithm
         -m: Optional mask file to be provided. Will be resampled to resolution of image file. If not specified, mask is created out of Image.
@@ -19,10 +19,11 @@ USAGE="usage:\n\
         -a: axis along which to cut (0,1,2)
         -d: {^beginning','end'}.Direction of cut. Trim either from start of axis inwards or from end of axis inwards.
         -b: use the given mask as boundary for cut
+        -x: use Blenders mesh triangulation algorithm to decimate resulting mesh and smooth mesh. Requires working installation of Blender.
         -h: displays help message."
 
 #read options
-while getopts ':i:t:bcs:a:d:m:h' flag; do
+while getopts ':i:t:bcs:a:d:m:hx' flag; do
         case "${flag}" in
 
                 i)
@@ -50,6 +51,9 @@ while getopts ':i:t:bcs:a:d:m:h' flag; do
                 m)  
                         MASK=true
                         MASK_FILE="$OPTARG"
+                        ;;
+                x)
+                        DECIMATE=true
                         ;;
                 h)
                         echo -e "$USAGE"
@@ -120,9 +124,32 @@ fi
 
 echo mesh created
 
+
+#Decimate and smooth mesh using Blender 
+if $DECIMATE; then
+        MESH_NAME=$(find . -name '*.obj')
+        NAMES=($(echo $MESH_NAME | tr "\n" "\n"))
+
+        if [ -f decimate_mesh_blender.py ]; then
+                for NAME in "${NAMES[@]}"
+                do
+                        blender -b -P decimate_mesh_blender.py -- -f $NAME -r 0.4 -i 2 -n 4 -l 0.5
+                done
+        else
+                for NAME in "${NAMES[@]}"
+                do
+                        blender -b -P ../decimate_mesh_blender.py -- -f $NAME -r 0.4 -i 2 -n 4 -l 0.5
+                done
+        fi
+
+        echo mesh processed
+fi
+
 #Clean UP
 rm $SMOOTHED_MASK
 rm $OUTPUTFILE
+
+
 
 
 

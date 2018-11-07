@@ -41,6 +41,7 @@ pushd ${P}
      bash ../dsurqec.sh || exit 1
      bash ../abi.sh || exit 1
      bash ../abi2dsurqec_40micron.sh || exit 1     
+     bash ../roi.sh || exit 1
      rm abi_10_average.nii.gz 
      rm abi_10_annotation.nii.gz
      mv abi_15_average.nii.gz ../${PHD}
@@ -48,8 +49,6 @@ pushd ${P}
      if $MAKE_MESH ; then
           bash ../ambmc2dsurqec.sh || exit 1
           mv ambmc2dsurqec_15micron.nii ../{$PHD}
-          mv ambmc2dsurqec_15micron_cut_mesh_0.obj ../${PHD}
-          mv ambmc2dsurqec_15micron_cut_mesh_1.obj ../${PHD}
      fi
 mv ambmc_15micron.nii ../${PHD}
 mv lambmc_15micron.nii ../${PHD}
