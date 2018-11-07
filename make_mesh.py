@@ -6,7 +6,6 @@ import nibabel
 import numpy
 import os
 from math import floor
-import scipy
 import argparse
 #
 def remove_inner_surface(img_data,mask,treshhold=0):
