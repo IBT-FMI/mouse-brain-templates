@@ -37,6 +37,10 @@ fslmaths 'dsurqec_200micron.nii' -mas 'dsurqec_200micron_mask.nii' 'dsurqec_200m
 fslswapdim dsurqec_200micron_masked.nii x -y z ldsurqec_200micron_masked.nii
 fslorient -deleteorient ldsurqec_200micron_masked.nii
 fslchpixdim ldsurqec_200micron_masked.nii 2.0 2.0 2.0
+fslorient -copyqform2sform ldsurqec_200micron_masked.nii
+fslswapdim dsurqec_200micron_mask.nii x -y z ldsurqec_200micron_mask.nii
+fslorient -deleteorient ldsurqec_200micron_mask.nii
+fslchpixdim ldsurqec_200micron_mask.nii 2.0 2.0 2.0
 fslorient -copyqform2sform ldsurqec_200micron_mask.nii
 
 # Cleanup
