@@ -70,13 +70,7 @@ rm ambmc2dsurqec_InverseComposite.h5
 
 #Make mesh file of transformed atlas
 if [ -n "${STANDALONE}" ]; then        
-<<<<<<< HEAD
 	bash make_mesh.sh -i ambmc2dsurqec_15micron.nii -t 640000 -m dsurqec_40micron_mask.nii -c -s 20 -a 1 -d beginning -b
 else
 	bash ../make_mesh.sh -i ambmc2dsurqec_15micron.nii -t 640000 -m dsurqec_40micron_mask.nii -c -s 20 -a 1 -d beginning -b
-=======
-	bash make_mesh.sh -i ambmc2dsurqec_15micron.nii -t 640000 -m dsurqec_40micron_mask.nii -c -s 20 -a 1 -d 0 -b
-else
-	bash ../make_mesh.sh -i ambmc2dsurqec_15micron.nii -t 640000 -m dsurqec_40micron_mask.nii -c -s 20 -a 1 -d 0 -b
->>>>>>> 889cda213614b6fb540c76f8ac1b155971ee10d0
 fi
