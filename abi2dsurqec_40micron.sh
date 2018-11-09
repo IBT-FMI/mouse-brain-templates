@@ -53,5 +53,5 @@ fslorient -copyqform2sform abi2dsurqec_40micron_masked.nii
 
 #Use the composite to transform annotation file
 CompositeTransformUtil --disassemble abi2dsurqec_Composite.h5 Dissasembled
-WarpImageMultiTransform 3 abi_10_annotation.nii.gz abi2dsurqec_10_annotation.nii.gz 01_Dissasembled_DisplacementFieldTransform.nii.gz 00_Dissasembled_AffineTransform.mat -R dsurqec_40micron_masked.nii.gz --use-ML 0.4mm
-fslorient -copyqform2sform abi2dsurqec_10_annotation.nii.gz
+WarpImageMultiTransform 3 abi_10_annotation.nii.gz abi2dsurqec_40_annotation.nii.gz 01_Dissasembled_DisplacementFieldTransform.nii.gz 00_Dissasembled_AffineTransform.mat -R dsurqec_40micron_masked.nii.gz --use-ML 0.4mm
+fslorient -copyqform2sform abi2dsurqec_40_annotation.nii.gz
