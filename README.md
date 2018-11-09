@@ -2,7 +2,7 @@
 
 Scripts to build the mouse brain atlases collection used by [SAMRI](https://github.com/IBT-FMI/SAMRI) and more generally by the ETH and Univeristy of Zurich Animal Imaging Center.
 
-**N.B.** None of the atlases fetched and bundled in this archive are created by us, all credit goes to the original authors, see our [fair use and citation notice](FAIRUSE-AND-CITATION).
+**N.B.** Most of the volumetric data fetched and bundled in this archive are created by us, all credit goes to the original authors, see our [fair use and citation notice](FAIRUSE-AND-CITATION).
 
 # Constituent Atlases
 
