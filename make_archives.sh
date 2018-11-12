@@ -42,11 +42,11 @@ pushd ${P}
      bash ../abi.sh || exit 1
      bash ../abi2dsurqec_40micron.sh || exit 1     
      bash ../roi.sh || exit 1
-     rm abi_10micron_average.nii.gz 
-     rm abi_10micron_annotation.nii.gz
-     mv abi_15micron_average.nii.gz ../${PHD}
-     mv ambmc_15micron_mask.nii.gz ../${PHD}
-     mv abi_15micron_annotation.nii.gz ../${PHD}
+     rm abi_10micron_average.nii 
+     rm abi_10micron_annotation.nii
+     mv abi_15micron_average.nii ../${PHD}
+     mv ambmc_15micron_mask.nii ../${PHD}
+     mv abi_15micron_annotation.nii ../${PHD}
      if $MAKE_MESH ; then
           bash ../ambmc2dsurqec.sh || exit 1
           mv ambmc2dsurqec_15micron.nii ../{$PHD}
