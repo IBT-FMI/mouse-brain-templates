@@ -52,6 +52,5 @@ antsRegistration \
 fslorient -copyqform2sform abi2dsurqec_40micron_masked.nii
 
 #Use the composite to transform annotation file
-CompositeTransformUtil --disassemble abi2dsurqec_Composite.h5 Dissasembled
-WarpImageMultiTransform 3 abi_10micron_annotation.nii.gz abi2dsurqec_40_annotation.nii.gz 01_Dissasembled_DisplacementFieldTransform.nii.gz 00_Dissasembled_AffineTransform.mat -R dsurqec_40micron_masked.nii.gz --use-ML 0.4mm
+antsApplyTransforms -d 3 -i abi_10micron_annotation.nii.gz -r dsurqec_40micron_masked.nii.gz -o abi2dsurqec_40_annotation.nii.gz -t abi2dsurqec_Composite.h5 -n MultiLabel
 fslorient -copyqform2sform abi2dsurqec_40_annotation.nii.gz
