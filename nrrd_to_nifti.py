@@ -38,7 +38,7 @@ for file in files:
 	data = data[:,::-1,:]
 	
 	img = nibabel.Nifti1Image(data,affine_matrix)
-	nibabel.save(img,os.path.join(path, os.path.basename(file).split(".")[0] + '.nii.gz'))
+	nibabel.save(img,os.path.join(path, os.path.basename(file).split(".")[0] + '.nii'))
 	
 	#Delete Nrrd-File
 	os.remove(file)

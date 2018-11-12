@@ -72,7 +72,7 @@ if $MASK; then
         RESOLUTION=$RESOLUTION$CM$RESOLUTION$CM$RESOLUTION
         NAME=($(echo $MASK_FILE | tr "." "\n"))
         PREFIX=${NAME[0]}
-        SUFFIX=_resampled.nii.gz
+        SUFFIX=_resampled.nii
         MASK_NAME=$PREFIX$SUFFIX
         echo ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION size=1 spacing=0 1
         ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION size=1 spacing=0 1
@@ -80,7 +80,7 @@ fi
 if [ "$MASK" == "false" ]; then
         NAME=($(echo $IMAGE_NAME | tr "." "\n"))
         PREFIX=${NAME[0]}
-        SUFFIX=_mask.nii.gz
+        SUFFIX=_mask.nii
         MASK_NAME=$PREFIX$SUFFIX
         fslmaths $IMAGE_NAME -thr 10 -bin $MASK_NAME
 fi
@@ -89,7 +89,7 @@ echo mask created
 
 NAME_M=($(echo $MASK_NAME | tr "." "\n"))
 PREFIX_M=${NAME_M[0]}
-SUFFIX_M=_smoothed.nii.gz
+SUFFIX_M=_smoothed.nii
 SMOOTHED_MASK=$PREFIX_M$SUFFIX_M
 
 
@@ -102,7 +102,7 @@ echo mask smoothed
 if $CUT; then
         NAME_C=($(echo $IMAGE_NAME | tr "." "\n"))
         PREFIX_C=${NAME_C[0]}
-        SUFFIX_C="_cut.nii.gz"
+        SUFFIX_C="_cut.nii"
         OUTPUTFILE=$PREFIX_C$SUFFIX_C
         if $BOUNDARY; then
                 python -c "import make_mesh; make_mesh.cut_img_mas(\"$IMAGE_NAME\",\"$OUTPUTFILE\",$SIZE,$AXIS,\"$TRIM_STARTING_FROM\",\"$MASK_NAME\")"
