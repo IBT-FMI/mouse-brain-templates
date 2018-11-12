@@ -1,17 +1,17 @@
 #!/bin/sh
 
 #Resize to same size as dsurqec  atlases
-ResampleImage 3 abi_10_average.nii.gz abi_15_average.nii.gz 0.015x0.015x0.015 size=1 spacing=0 4
-fslorient -copyqform2sform abi_15_average.nii.gz
-ResampleImage 3 abi_10_average.nii.gz abi_40_average.nii.gz 0.04x0.04x0.04 size=1 spacing=0 4
+ResampleImage 3 abi_10micron_average.nii.gz abi_15micron_average.nii.gz 0.015x0.015x0.015 size=1 spacing=0 4
+fslorient -copyqform2sform abi_15micron_average.nii.gz
+ResampleImage 3 abi_10micron_average.nii.gz abi_40_average.nii.gz 0.04x0.04x0.04 size=1 spacing=0 4
 fslorient -copyqform2sform abi_40_average.nii.gz
-ResampleImage 3 abi_10_average.nii.gz abi_200_average.nii.gz 0.2x0.2x0.2 size=1 spacing=0 4
+ResampleImage 3 abi_10micron_average.nii.gz abi_200_average.nii.gz 0.2x0.2x0.2 size=1 spacing=0 4
 fslorient -copyqform2sform abi_200_average.nii.gz
 
 #Correct resamoling of the annotation files: Use antsAppyTransform with Identity matrix. Multilabel interpolation can be used which is not possible in ResampleImage
-antsApplyTransforms -d 3 -e 0 -i abi_10_annotation.nii.gz -r abi_15_average.nii.gz -o abi_15_annotation.nii.gz -n MultiLabel -t Identity
-fslorient -copyqform2sform abi_15_annotation.nii.gz
-antsApplyTransforms -d 3 -e 0 -i abi_10_annotation.nii.gz -r abi_40_average.nii.gz -o abi_40_annotation.nii.gz -n MultiLabel -t Identity
+antsApplyTransforms -d 3 -e 0 -i abi_10micron_annotation.nii.gz -r abi_15micron_average.nii.gz -o abi_15micron_annotation.nii.gz -n MultiLabel -t Identity
+fslorient -copyqform2sform abi_15micron_annotation.nii.gz
+antsApplyTransforms -d 3 -e 0 -i abi_10micron_annotation.nii.gz -r abi_40_average.nii.gz -o abi_40_annotation.nii.gz -n MultiLabel -t Identity
 fslorient -copyqform2sform abi_40_annotation.nii.gz
 
 # Registration call
@@ -53,5 +53,5 @@ fslorient -copyqform2sform abi2dsurqec_40micron_masked.nii
 
 #Use the composite to transform annotation file
 CompositeTransformUtil --disassemble abi2dsurqec_Composite.h5 Dissasembled
-WarpImageMultiTransform 3 abi_10_annotation.nii.gz abi2dsurqec_40_annotation.nii.gz 01_Dissasembled_DisplacementFieldTransform.nii.gz 00_Dissasembled_AffineTransform.mat -R dsurqec_40micron_masked.nii.gz --use-ML 0.4mm
+WarpImageMultiTransform 3 abi_10micron_annotation.nii.gz abi2dsurqec_40_annotation.nii.gz 01_Dissasembled_DisplacementFieldTransform.nii.gz 00_Dissasembled_AffineTransform.mat -R dsurqec_40micron_masked.nii.gz --use-ML 0.4mm
 fslorient -copyqform2sform abi2dsurqec_40_annotation.nii.gz
