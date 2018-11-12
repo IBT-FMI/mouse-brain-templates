@@ -148,7 +148,7 @@ fi
 #Clean UP
 rm $SMOOTHED_MASK
 rm $OUTPUTFILE
-
+rm $MASK_NAME
 
 
 
