@@ -134,11 +134,13 @@ if $DECIMATE; then
                 for NAME in "${NAMES[@]}"
                 do
                         blender -b -P decimate_mesh_blender.py -- -f $NAME -r 0.4 -i 2 -n 4 -l 0.5
+                        rm $NAME
                 done
         else
                 for NAME in "${NAMES[@]}"
                 do
                         blender -b -P ../decimate_mesh_blender.py -- -f $NAME -r 0.4 -i 2 -n 4 -l 0.5
+                        rm $NAME
                 done
         fi
 

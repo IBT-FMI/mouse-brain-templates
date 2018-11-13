@@ -250,6 +250,5 @@ def main():
 
 	#save mesh as .obj
 	write_obj((path + (args.image_name).split(".")[0] + "_mesh_1.obj"),verts,faces,normals,values,affine = img.affine,one=True)
-	write_obj((path + (args.image_name).split(".")[0] + "_mesh_0.obj"),verts,faces,normals,values,affine = img.affine,one=False)
 
 if __name__ == '__main__': main()
