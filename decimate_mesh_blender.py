@@ -65,5 +65,5 @@ else:
 	output_filename = path + args.output_filename
 
 #Save file as .obj
-bpy.ops.export_scene.obj(filepath=output_filename)
+bpy.ops.export_scene.obj(filepath=output_filename,use_materials=False)
 
