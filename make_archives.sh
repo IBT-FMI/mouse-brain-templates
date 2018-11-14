@@ -51,9 +51,12 @@ pushd ${P}
           bash ../ambmc2dsurqec.sh || exit 1
           mv ambmc2dsurqec_15micron.nii ../{$PHD}
      fi
-mv ambmc_15micron.nii ../${PHD}
-mv lambmc_15micron.nii ../${PHD}
- 
+     mv ambmc_15micron.nii ../${PHD}
+     mv lambmc_15micron.nii ../${PHD}
+     mv lambmc_15micron_mask.nii ../${PHD}
+     rm dsurqec_15micron_masked.nii
+
+
 popd
 tar cfJ "${P}.tar.xz" ${P}
 tar cfJ "${PHD}.tar.xz" ${PHD}
