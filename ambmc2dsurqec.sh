@@ -65,6 +65,10 @@ antsRegistration \
 
 fslorient -copyqform2sform ambmc2dsurqec_15micron.nii
 
+#apply mask
+fslmaths 'ambmc2dsurqec_15micron.nii' -mas 'dsurqec_40micron_mask.nii' 'ambmc2dsurqec_15micron_masked.nii'
+
+rm ambmc2dsurqec_15micron.nii
 rm ambmc2dsurqec_Composite.h5
 rm ambmc2dsurqec_InverseComposite.h5
 
