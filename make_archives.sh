@@ -49,7 +49,7 @@ pushd ${P}
      mv abi_15micron_annotation.nii ../${PHD}
      if $MAKE_MESH ; then
           bash ../ambmc2dsurqec.sh || exit 1
-          mv ambmc2dsurqec_15micron.nii ../{$PHD}
+          mv ambmc2dsurqec_15micron.nii ../${PHD}
      fi
      mv ambmc_15micron.nii ../${PHD}
      mv lambmc_15micron.nii ../${PHD}
