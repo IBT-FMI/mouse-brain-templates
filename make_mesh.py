@@ -122,7 +122,7 @@ def get_bounding_slices(img):
 		idx_i = numpy.nonzero(dmask_i)[0]
 		if len(idx_i) != 2:
 			#TODO: see if one boundary has been found, and check that)
-			print("No clear boundary found (no zero entries?) in dimension" + kdim)
+			print("No clear boundary found (no zero entries?) in dimension " + str(kdim))
 			print("Boundary of data matrix is returned instead")
 			idx_i = [0, dims[kdim]-2]
 		bbox.append([idx_i[0]+1, idx_i[1]+1])
