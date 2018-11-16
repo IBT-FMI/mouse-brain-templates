@@ -65,16 +65,21 @@ antsRegistration \
 
 fslorient -copyqform2sform ambmc2dsurqec_15micron.nii
 
-#apply mask
-fslmaths 'ambmc2dsurqec_15micron.nii' -mas 'dsurqec_40micron_mask.nii' 'ambmc2dsurqec_15micron_masked.nii'
-
-rm ambmc2dsurqec_15micron.nii
-rm ambmc2dsurqec_Composite.h5
-rm ambmc2dsurqec_InverseComposite.h5
-
 #Make mesh file of transformed atlas
 if [ -n "${STANDALONE}" ]; then        
 	bash make_mesh.sh -i ambmc2dsurqec_15micron.nii -t 640000 -m dsurqec_40micron_mask.nii -c -s 20 -a 1 -d beginning -b -x
 else
 	bash ../make_mesh.sh -i ambmc2dsurqec_15micron.nii -t 640000 -m dsurqec_40micron_mask.nii -c -s 20 -a 1 -d beginning -b -x
 fi
+
+#apply mask
+ResampleImage 3 dsurqec_40micron_mask.nii dsurqec_15micron_mask.nii 0.015x0.015x0.015 size=1 spacing=0 1
+fslmaths ambmc2dsurqec_15micron.nii -mas dsurqec_15micron_mask.nii ambmc2dsurqec_15micron_masked.nii
+gunzip ambmc2dsurqec_15micron_masked.nii.gz
+
+rm dsurqec_15micron_mask.nii
+rm ambmc2dsurqec_15micron.nii
+rm ambmc2dsurqec_Composite.h5
+rm ambmc2dsurqec_InverseComposite.h5
+
+
