@@ -8,6 +8,7 @@ FSLOUTPUTTYPE=NIFTI
 wget http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti/DSURQE_40micron_average.nii
 wget http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti/DSURQE_40micron_labels.nii
 wget http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti/DSURQE_40micron_mask.nii
+wget http://chymera.eu/distfiles/dsurqe_labels.csv
 
 # Set origin to Paxinos Bregma
 mv DSURQE_40micron_average.nii dsurqec_40micron.nii
