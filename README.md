@@ -8,8 +8,8 @@ Scripts to build the mouse brain atlases collection used by [SAMRI](https://gith
 
 Current recommended release in bold typeface, additional HD data in parentheses:
 
-* **[0.3](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.tar.xz), ([HD](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.3.tar.xz))**
-* [0.2](http://chymera.eu/distfiles/mouse-brain-atlases-0.2.20180719.tar.xz), ([HD](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.2.20180719.tar.xz))
+* **[mouse-brain-atlases-0.3](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.tar.xz) ([checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512)), [mouse-brain-atlasesHD-0.3](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.3.tar.xz) ([checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512))**
+* [mouse-brain-atlases-0.2](http://chymera.eu/distfiles/mouse-brain-atlases-0.2.20180719.tar.xz), ([HD](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.2.20180719.tar.xz))
 
 # Constituent Atlases
 
