@@ -6,10 +6,10 @@ Scripts to build the mouse brain atlases collection used by [SAMRI](https://gith
 
 # Mouse Brain Atlases Package Releases
 
-Current recommended release in bold typeface, additional HD data in parentheses:
+Current recommended release in bold typeface, basic resolution and HD packages with archive checksums linked in parentheses:
 
-* **[mouse-brain-atlases-0.3](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.tar.xz) ([checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512)), [mouse-brain-atlasesHD-0.3](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.3.tar.xz) ([checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512))**
-* [mouse-brain-atlases-0.2](http://chymera.eu/distfiles/mouse-brain-atlases-0.2.20180719.tar.xz), ([HD](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.2.20180719.tar.xz))
+* **[mouse-brain-atlases-0.3](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.tar.xz)**([checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512)), **[mouse-brain-atlasesHD-0.3](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.3.tar.xz)** ([checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512))
+* [mouse-brain-atlases-0.2](http://chymera.eu/distfiles/mouse-brain-atlases-0.2.20180719.tar.xz) ([checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.2.20180719.sha512)), [mouse-brain-atlasesHD-0.2](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.2.20180719.tar.xz) ([checksum](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.2.20180719.sha512))
 
 # Constituent Atlases
 
