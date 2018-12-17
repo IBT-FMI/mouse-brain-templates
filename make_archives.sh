@@ -54,10 +54,12 @@ pushd ${P}
 	mv ambmc_15micron.nii ../${PHD}
 	mv lambmc_15micron.nii ../${PHD}
 	mv lambmc_15micron_mask.nii ../${PHD}
+	# The name resulting from operation concatenation is verbose and confusing, here we change it:
+	mv ambmc2dsurqec_15micron_cut_mesh_1_decimated.obj ambmc2dsurqec_15micron_masked.obj
+
 	rm dsurqec_15micron_masked.nii
-
-
 popd
+
 tar cfJ "${P}.tar.xz" ${P}
 tar cfJ "${PHD}.tar.xz" ${PHD}
 str=$(sha512sum ${P}.tar.xz); echo "${str%% *}" > "${P}.sha512"
