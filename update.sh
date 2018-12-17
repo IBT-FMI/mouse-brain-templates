@@ -8,7 +8,7 @@ PV="0.2.${DATE}"
 rsync -avP ${PN}*${PV}.tar.xz dreamhost:chymera.eu/distfiles/
 
 if [ $? -eq 0 ]; then
-     rm -rf ${PN}*${PV}*
+	rm -rf ${PN}*${PV}*
 else
-     echo "Could not rsync to remote server. Are you authenticated to use it?"
+	echo "Could not rsync to remote server. Are you authenticated to use it?"
 fi

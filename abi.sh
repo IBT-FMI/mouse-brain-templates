@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#donwload average template from  ABI Website
+#donwload average template from ABI Website
 wget -O abi_10micron_average.nrrd http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/average_template/average_template_10.nrrd
 
 #download annotation
