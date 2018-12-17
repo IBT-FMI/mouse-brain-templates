@@ -4,15 +4,15 @@ import sys
 import argparse
 
 ## Example call from commandline: blender -b -P decimate_mesh_blender.py -- -f mesh.obj -o mesh_dec.obj -r 0.5 -i 2 -n 4 -l 0.5
-## Blender will ignore all options after -- so parameters can be passed to python script. 
+## Blender will ignore all options after -- so parameters can be passed to python script.
 
 # get the args passed to blender after "--", all of which are ignored by
 # blender so scripts may receive their own arguments
 argv = sys.argv
 if "--" not in argv:
-	argv = []  # as if no args are passed
+	argv = [] # as if no args are passed
 else:
-	argv = argv[argv.index("--") + 1:]  # get all args after "--"
+	argv = argv[argv.index("--") + 1:] # get all args after "--"
 
 path = os.path.abspath('.')
 path = path + '/'
@@ -34,7 +34,7 @@ for o in bpy.data.objects:
 	o.select=True
 bpy.ops.object.delete()
 
-#Import Mesh 
+#Import Mesh
 bpy.ops.import_scene.obj(filepath= path + args.filename)
 Mesh = bpy.context.selected_objects[0]
 

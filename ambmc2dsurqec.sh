@@ -4,7 +4,6 @@ STANDALONE=$1
 
 #Standalone: Need to download atlas and transform beforehand
 if [ -n "${STANDALONE}" ]; then
-        
 	bash dsurqec.sh
 	bash ambmc.sh
 	rm lambmc*
@@ -21,9 +20,9 @@ rm _dsurqec_15micron_masked.nii
 
 #Run AntsRegisatr
 antsAI -d 3 -v \
-        --transform Rigid[ 0.5 ] \
-        --metric MI[dsurqec_15micron_masked.nii,ambmc_15micron.nii, 1, 64, Random, 0.1 ] \
-        exit 1
+		--transform Rigid[ 0.5 ] \
+		--metric MI[dsurqec_15micron_masked.nii,ambmc_15micron.nii, 1, 64, Random, 0.1 ] \
+		exit 1
 
 # Registration call
 
@@ -66,7 +65,7 @@ antsRegistration \
 fslorient -copyqform2sform ambmc2dsurqec_15micron.nii
 
 #Make mesh file of transformed atlas
-if [ -n "${STANDALONE}" ]; then        
+if [ -n "${STANDALONE}" ]; then
 	bash make_mesh.sh -i ambmc2dsurqec_15micron.nii -t 640000 -m dsurqec_40micron_mask.nii -c -s 20 -a 1 -d beginning -b -x
 else
 	bash ../make_mesh.sh -i ambmc2dsurqec_15micron.nii -t 640000 -m dsurqec_40micron_mask.nii -c -s 20 -a 1 -d beginning -b -x
