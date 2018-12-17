@@ -60,3 +60,5 @@ pushd ${P}
 popd
 tar cfJ "${P}.tar.xz" ${P}
 tar cfJ "${PHD}.tar.xz" ${PHD}
+str=$(sha512sum ${P}.tar.xz); echo "${str%% *}" > "${P}.sha512"
+str=$(sha512sum ${PHD}.tar.xz); echo "${str%% *}" > "${PHD}.sha512"
