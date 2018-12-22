@@ -26,4 +26,13 @@ Additionally, standard space modifications are applied, e.g. to conform to the N
 * [ABI](http://download.alleninstitute.org/informatics-archive/current-release/mouse_ccf/average_template/average_template_10.nrrd):
 	* `abi` - Oriented in RAS space.
 
+# Usage
 
+In order to create a new version of the mouse-brain-atlases package, simply navigate to the root directory of this repository and run:
+
+```
+./make_archives.sh -v 0.5 -m
+```
+
+This will create archives with the newest files fetched from upstream and processed according to the instructions standardized in this package.
+The version suffix will be `0.5` (as per the `-v 0.5` parameter) and a high-resolution mesh for the standardized space will also be generated (as per the `-m` flag).
