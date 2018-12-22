@@ -44,6 +44,15 @@ fslorient -deleteorient ldsurqec_200micron_mask.nii
 fslchpixdim ldsurqec_200micron_mask.nii 2.0 2.0 2.0
 fslorient -copyqform2sform ldsurqec_200micron_mask.nii
 
+fslswapdim dsurqec_40micron_masked.nii x -y z ldsurqec_40micron_masked.nii
+fslorient -deleteorient ldsurqec_40micron_masked.nii
+fslchpixdim ldsurqec_40micron_masked.nii 0.4 0.4 0.4
+fslorient -copyqform2sform ldsurqec_40micron_masked.nii
+fslswapdim dsurqec_40micron_mask.nii x -y z ldsurqec_40micron_mask.nii
+fslorient -deleteorient ldsurqec_40micron_mask.nii
+fslchpixdim ldsurqec_40micron_mask.nii 0.4 0.4 0.4
+fslorient -copyqform2sform ldsurqec_40micron_mask.nii
+
 # Cleanup
 rm _dsurqec_200micron.nii
 
