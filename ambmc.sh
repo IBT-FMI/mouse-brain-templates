@@ -44,6 +44,7 @@ fslorient -copysform2qform ambmc_200micron.nii
 
 # Make Masks, with atlas specific threshold (background is 191919).
 # This does not include ambmc_200micron.nii, as this was masked earlier.
+mv __ambmc_200micron_mask.nii ambmc_200micron_mask.nii
 fslmaths ambmc_40micron.nii -thr $(fslstats ambmc_40micron.nii -P 77) -bin ambmc_40micron_mask.nii
 fslmaths ambmc_15micron.nii -thr $(fslstats ambmc_15micron.nii -P 77) -bin ambmc_15micron_mask.nii
 fslmaths lambmc_200micron.nii -thr $(fslstats lambmc_200micron.nii -P 77) -bin lambmc_200micron_mask.nii
