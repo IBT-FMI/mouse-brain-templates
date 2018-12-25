@@ -36,10 +36,10 @@ fslswapdim _ambmc_15micron.nii x -y z ambmc_15micron.nii
 fslorient -setsform 0.015 0 0 -5.094 0 0.015 0 -9.8355 0 0 0.015 -3.726 0 0 0 1 ambmc_15micron.nii
 fslorient -copysform2qform ambmc_15micron.nii
 fslswapdim _ambmc_40micron.nii x -y z ambmc_40micron.nii
-fslorient -setsform 0.04 0 0 -5.084 0 0.04 0 -9.8255 0 0 0.04 -3.726 0 0 0 1 ambmc_40micron.nii
+fslorient -setsform 0.04 0 0 -5.094 0 0.04 0 -9.8355 0 0 0.04 -3.726 0 0 0 1 ambmc_40micron.nii
 fslorient -copysform2qform ambmc_40micron.nii
 fslswapdim _ambmc_200micron.nii x -y z ambmc_200micron.nii
-fslorient -setsform 0.2 0 0 -4.924 0 0.2 0 -9.5855 0 0 0.2 -3.726 0 0 0 1 ambmc_200micron.nii
+fslorient -setsform 0.2 0 0 5.0944 0 0.2 0 -9.8355 0 0 0.2 -3.726 0 0 0 1 ambmc_200micron.nii
 fslorient -copysform2qform ambmc_200micron.nii
 
 # Make Masks, with atlas specific threshold (background is 191919).
