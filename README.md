@@ -8,10 +8,10 @@ Scripts to build the mouse brain atlases collection used by [SAMRI](https://gith
 
 Current recommended release in bold typeface, basic resolution and HD packages with archive checksums linked in parentheses:
 
-* **[mouse-brain-atlases-0.5.1](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.1.tar.xz)** \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.1.sha512)\], **[mouse-brain-atlasesHD-0.5.1](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.5.1.tar.xz)** \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.1.sha512)\]
-* [mouse-brain-atlases-0.5](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.sha512)\], [mouse-brain-atlasesHD-0.5](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.5.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.sha512)\]
-* [mouse-brain-atlases-0.4](http://chymera.eu/distfiles/mouse-brain-atlases-0.4.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.4.sha512)\], [mouse-brain-atlasesHD-0.4](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.4.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.4.sha512)\]
-* [mouse-brain-atlases-0.3](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512)\], [mouse-brain-atlasesHD-0.3](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.3.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512)\]
+* **[mouse-brain-atlases-0.5.1](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.1.tar.xz)** \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.1.sha512)\], **[mouse-brain-atlasesHD-0.5.1](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.5.1.tar.xz)** \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.5.1.sha512)\]
+* [mouse-brain-atlases-0.5](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.5.sha512)\], [mouse-brain-atlasesHD-0.5](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.5.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.5.sha512)\]
+* [mouse-brain-atlases-0.4](http://chymera.eu/distfiles/mouse-brain-atlases-0.4.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.4.sha512)\], [mouse-brain-atlasesHD-0.4](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.4.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.4.sha512)\]
+* [mouse-brain-atlases-0.3](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlases-0.3.sha512)\], [mouse-brain-atlasesHD-0.3](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.3.tar.xz) \[[checksum](http://chymera.eu/distfiles/mouse-brain-atlasesHD-0.3.sha512)\]
 
 # Constituent Atlases
 
