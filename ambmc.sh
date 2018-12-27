@@ -10,6 +10,7 @@ tar xvzf ambmc-c57bl6-model-symmet_v0.8-nii.tar.gz
 cp ambmc-c57bl6-model-symmet_v0.8-nii/ambmc-c57bl6-model-symmet_v0.8.nii _ambmc_15micron.nii
 cp ambmc-c57bl6-model-symmet_v0.8-nii/COPYING ambmc_COPYING
 cp ambmc-c57bl6-model-symmet_v0.8-nii/README ambmc_README
+THRESHOLD=$(fslstats _ambmc_15micron.nii -P 77)
 
 # Multiple Sizes
 ResampleImage 3 _ambmc_15micron.nii __ambmc_40micron.nii 0.04x0.04x0.04 size=1 spacing=0 4
@@ -17,7 +18,6 @@ SmoothImage 3 __ambmc_40micron.nii 0.08 _ambmc_40micron.nii
 rm __ambmc_40micron.nii
 ResampleImage 3 _ambmc_15micron.nii __ambmc_200micron.nii 0.2x0.2x0.2 size=1 spacing=0 4
 SmoothImage 3 __ambmc_200micron.nii 0.4 _ambmc_200micron.nii
-THRESHOLD=$(fslstats _ambmc_200micron.nii -P 77)
 fslmaths _ambmc_200micron.nii -thr ${THRESHOLD} -bin __ambmc_200micron_mask.nii
 fslmaths '_ambmc_200micron.nii' -mas '__ambmc_200micron_mask.nii' _ambmc_200micron.nii
 
@@ -46,12 +46,11 @@ fslorient -copysform2qform ambmc_200micron.nii
 # Make Masks, with atlas specific threshold (background is 191919).
 # This does not include ambmc_200micron.nii, as this was masked earlier.
 mv __ambmc_200micron_mask.nii ambmc_200micron_mask.nii
-fslmaths ambmc_40micron.nii -thr $(fslstats ambmc_40micron.nii -P 77) -bin ambmc_40micron_mask.nii
-fslmaths ambmc_15micron.nii -thr $(fslstats ambmc_15micron.nii -P 77) -bin ambmc_15micron_mask.nii
-# We use the recorded THRESHOLD variable since the lambmc_200micron.nii file is now zero-padded and the percentile heuristic will no longer fit the brain.
+fslmaths ambmc_40micron.nii -thr ${THRESHOLD} -bin ambmc_40micron_mask.nii
+fslmaths ambmc_15micron.nii -thr ${THRESHOLD} -bin ambmc_15micron_mask.nii
 fslmaths lambmc_200micron.nii -thr ${THRESHOLD} -bin lambmc_200micron_mask.nii
-fslmaths lambmc_40micron.nii -thr $(fslstats lambmc_40micron.nii -P 77) -bin lambmc_40micron_mask.nii
-fslmaths lambmc_15micron.nii -thr $(fslstats lambmc_15micron.nii -P 77) -bin lambmc_15micron_mask.nii
+fslmaths lambmc_40micron.nii -thr ${THRESHOLD} -bin lambmc_40micron_mask.nii
+fslmaths lambmc_15micron.nii -thr ${THRESHOLD} -bin lambmc_15micron_mask.nii
 
 # Cleanup
 rm -rf ambmc-c57bl6-model-symmet_v0.8-nii*
