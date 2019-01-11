@@ -7,7 +7,7 @@ import sys
 
 #path = os.path.dirname(sys.argv[0])
 path = os.path.abspath('.')
-files = glob(path + '/*.nrrd')
+files = glob(os.path.join(path,'*.nrrd'))
 
 
 for file in files:
