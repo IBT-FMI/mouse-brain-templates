@@ -2,6 +2,8 @@
 
 Scripts to build the mouse brain atlases collection used by [SAMRI](https://github.com/IBT-FMI/SAMRI) and more generally by the ETH and University of Zurich Animal Imaging Center.
 
+The script fetches atlas data from verified sources, applies the default NIfTI orientation (RAS) where needed, resets the origin of selected templates to bregma, and applies a consistent naming scheme and resolution set to all atlases. Additionally, the template can create a mesh object via a dedicated Blender pipeline, which is useful for surface and high-resolution rendering, as well as 3D printing.
+
 **N.B.** Most of the volumetric data fetched and bundled in this archive are not originally recorded by us, all credit for such files goes to the original authors, see our [fair use and citation notice](FAIRUSE-AND-CITATION).
 
 # Mouse Brain Atlases Package Releases
