@@ -13,7 +13,7 @@ def remove_inner_surface(img_data,mask,treshhold=0):
 	Replace inner data of the given volume with a smoothed, uniform masking to avoid generation
 	of inner surface structures and staircase artifacts when using marching cube algorithm.
 	
-	Parameters:
+	Parameters
 	----------
 	img_data : array
 		Input volume data to extract mesh from.
@@ -22,8 +22,8 @@ def remove_inner_surface(img_data,mask,treshhold=0):
 	treshhold : int
 		Determines isosurface and values for the inner mask.
 	
-	Returns:
-	---------
+	Returns
+	-------
 	fin : array
 		Manipulated data matrix to be used for marching cube.
 	iso_surface : float
@@ -61,8 +61,8 @@ def cut_img_mas(file_input,file_output,size,axis,trim_starting_from,mask = None)
 	"""
 	Trim data matrix before mesh creation. Reads in nifti file and saves the trimmed image as nifti file.
 
-	Parameters:
-	-----------
+	Parameters
+	----------
 	file_input: str
 		File name of image to be loaded and cut (nifti format).
 	file_output: str
@@ -99,13 +99,13 @@ def get_bounding_slices(img):
 	"""
 	Determine the boundaries of the given image.
 	
-	Parameters:
-	-----------
+	Parameters
+	----------
 	img : array
 		Image data matrix of which boundaries are to be determined.
 	
-	Returns:
-	--------
+	Returns
+	-------
 	bbox : array
 		Array of size (Dim,2) with range of indices through the matrix that contain non-zero entries along each axis.
 	
@@ -133,8 +133,8 @@ def cut_img(img,bbox,size,axis,trim_starting_from):
 	"""
 	Trim image data matrix.
 
-	Parameters:
-	-----------
+	Parameters
+	----------
 	img: array
 		Image data matrix to be trimmed.
 	bbox : array
@@ -146,8 +146,8 @@ def cut_img(img,bbox,size,axis,trim_starting_from):
 	trim_starting_from : {'bginning','end'}
 		Either trim form beginning af axis inwards or from end of axis inwards.
 
-	Returns:
-	---------
+	Returns
+	-------
 	img : array
 		Trimmed data matrix.
 	
@@ -170,15 +170,15 @@ def f(i, j, k, affine):
 	"""
 	Returns affine transformed coordinates (i,j,k) -> (x,y,z) Use to set correct coordinates and size for the mesh.
 	
-	Parameters:
-	-----------
+	Parameters
+	----------
 	i,j,k : int
 		Integer coordinates of points in 3D space to be transformed.
 	affine : array
 		4x4 matrix containing affine transformation information of Nifti-Image.
 	
-	Returns:
-	--------
+	Returns
+	-------
 	x,y,z : int
 		Affine transformed coordinates of input points.
 	
@@ -193,8 +193,8 @@ def write_obj(name,verts,faces,normals,values,affine=None,one=False):
 	"""
 	Write a .obj file for the output of marching cube algorithm.
 
-	Parameters:
-	-----------
+	Parameters
+	----------
 	name : str
 		Ouput file name.
 	verts : array
