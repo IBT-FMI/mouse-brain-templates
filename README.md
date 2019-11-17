@@ -33,7 +33,14 @@ Additionally, standard space modifications are applied, e.g. to conform to the N
 
 # Usage
 
-In order to create a new version of the mouse-brain-atlases package, simply navigate to the root directory of this repository and run:
+In order to create a new version of the mouse-brain-atlases package, simply clone this repository, and navigate to its root directory:
+
+```
+git clone https://github.com/IBT-FMI/mouse-brain-atlases_generator.git
+cd mouse-brain-atlases_generator
+```
+
+and then run:
 
 ```
 ./make_archives.sh -v 0.5 -m
