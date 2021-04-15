@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#Resize to same size as dsurqec atlases
+#Resize to same size as dsurqec templates
 ResampleImage 3 abi_10micron_average.nii abi_15micron_average.nii 0.015x0.015x0.015 size=1 spacing=0 4
 fslorient -copyqform2sform abi_15micron_average.nii
 ResampleImage 3 abi_10micron_average.nii abi_40micron_average.nii 0.04x0.04x0.04 size=1 spacing=0 4

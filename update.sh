@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DATE=`date +%Y%m%d`
-PN="mouse-brain-atlases"
+PN="mouse-brain-templates"
 PV="${1}"
 
 ./make_archives.sh -v "${PV}" -n "${PN}" -m || exit 1

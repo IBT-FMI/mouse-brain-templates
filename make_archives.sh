@@ -24,7 +24,7 @@ if [ -z "$PV" ]; then
 fi
 
 if [ -z "$PN" ]; then
-	PN="mouse-brain-atlases"
+	PN="mouse-brain-templates"
 fi
 
 P="${PN}-${PV}"
