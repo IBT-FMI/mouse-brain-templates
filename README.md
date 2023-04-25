@@ -11,7 +11,7 @@ Additionally, the workflow can create a mesh object via a dedicated Blender pipe
 
 Current recommended release in bold typeface, basic resolution and HD packages with archive checksums linked in parentheses:
 
-* **[mouse-brain-templates-0.5.3](http://chymera.eu/distfiles/mouse-brain-templates-0.5.3.tar.xz)** \[[SHA512 checksum](http://chymera.eu/distfiles/mouse-brain-templates-0.5.3.sha512)\], **[mouse-brain-templatesHD-0.5.3](http://chymera.eu/distfiles/mouse-brain-templatesHD-0.5.3.tar.xz)** \[[SHA512 checksum](http://chymera.eu/distfiles/mouse-brain-templatesHD-0.5.3.sha512)\]
+* **[mouse-brain-templates-0.5.3](https://resources.chymera.eu/distfiles/mouse-brain-templates-0.5.3.tar.xz)** \[[SHA512 checksum](https://resources.chymera.eu/distfiles/mouse-brain-templates-0.5.3.sha512)\], **[mouse-brain-templatesHD-0.5.3](https://resources.chymera.eu/distfiles/mouse-brain-templatesHD-0.5.3.tar.xz)** \[[SHA512 checksum](https://resources.chymera.eu/distfiles/mouse-brain-templatesHD-0.5.3.sha512)\]
 
 # Constituent Templates
 
