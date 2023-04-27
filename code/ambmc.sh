@@ -1,30 +1,18 @@
 #!/usr/bin/env bash
 
+source code/functions.sh
+
 # Set FSL Variable
 OLD_FSLOUTPUTTYPE=$FSLOUTPUTTYPE
 FSLOUTPUTTYPE=NIFTI
 
 # Direcotries
-WORKDIR="../work/"
-
-get_resource () {
-	RESOURCE_NAME=${1##*/}
-	echo ${RESOURCE_NAME}
-	RESOURCE_PATH="../resources/${RESOURCE_NAME}"
-	echo ${RESOURCE_PATH}
-	if [[ ! -f  ${RESOURCE_PATH} ]]; then
-		if datalad get "${RESOURCE_PATH}" ; then
-			echo "Datalad fetch of ${RESOURCE_NAME} succeeded."
-		else
-			echo "Datalad fetch of ${RESOURCE_NAME} failed."
-			echo "Downloading directly from source, \`${1}\`"
-			wget ${1} -O "${RESOURCE_PATH}"
-		fi
-	fi
-}
+WORKDIR="work/"
 
 # Download Upstream Template
+echo "lala"
 get_resource "http://imaging.org.au/uploads/AMBMC/ambmc-c57bl6-model-symmet_v0.8-nii.tar.gz"
+echo "lulu"
 
 tar xvzf "${RESOURCE_PATH}" -C "${WORKDIR}"
 pushd "${WORKDIR}"
