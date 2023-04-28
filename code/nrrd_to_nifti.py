@@ -4,22 +4,24 @@ import nrrd
 import nibabel
 import numpy as np
 import sys
+import logging as lg
 
-#path = os.path.dirname(sys.argv[0])
+WDIR="work/"
+
 path = os.path.abspath('.')
-files = glob(os.path.join(path,'*.nrrd'))
+files = glob(os.path.join(WDIR,'*.nrrd'))
 
 
 for file in files:
-	print("Reading " + file)
+	lg.info(f"Reading \`{file}\`.")
 	readnrrd = nrrd.read(file)
 	data = readnrrd[0]
 	header = readnrrd[1]
 
-	print("Converting " + file)
+	lg.info(f"Converting \`{file}\`.")
 
 	#space = header['space'].split("-")
-	affine_matrix = np.array(header["space directions"],dtype=np.float)
+	affine_matrix = np.array(header["space directions"],dtype=np.cfloat)
 	#if space[0] == 'left':
 	#affine_matrix[0,0] = affine_matrix[0,0] * (-1)
 	#if space[1] == 'posterior':
@@ -38,7 +40,9 @@ for file in files:
 	data = data[:,::-1,:]
 
 	img = nibabel.Nifti1Image(data,affine_matrix)
-	nibabel.save(img,os.path.join(path, os.path.basename(file).split(".")[0] + '.nii'))
+	out_path = os.path.join(WDIR, os.path.basename(file).split(".")[0] + '.nii')
+	lg.info(f"Writing file to \`{out_path}\`.")
+	nibabel.save(img, out_path)
 
-	#Delete Nrrd-File
-	os.remove(file)
+	##Delete Nrrd-File
+	##os.remove(file)

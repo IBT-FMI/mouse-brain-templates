@@ -37,17 +37,23 @@ PHD="${PN}HD-${PV}"
 P_DIR="${OUTDIR}/${P}"
 PHD_DIR="${OUTDIR}/${PHD}"
 
+# Setting up directories
 mkdir -p "${P_DIR}"
 mkdir -p "${PHD_DIR}"
 cp FAIRUSE-AND-CITATION ${P_DIR}
 cp FAIRUSE-AND-CITATION ${PHD_DIR}
 mkdir -p ${WORKDIR}
+
+# AMBMC atlas files
 bash ambmc.sh || exit 1
+cp ${WORKDIR}/ambmc_{COPYING,README} ${PHD_DIR}
+cp ${WORKDIR}/ambmc_{COPYING,README} ${P_DIR}
+
 #pushd ${P_DIR}
 	#bash ../ambmc.sh || exit 1
-	#
 	#cp ambmc_COPYING ../${PHD}
 	#cp ambmc_README ../${PHD}
+	#
 	#bash ../dsurqec.sh || exit 1
 	#bash ../abi.sh || exit 1
 	#bash ../abi2dsurqec_40micron.sh || exit 1
