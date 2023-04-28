@@ -10,9 +10,7 @@ FSLOUTPUTTYPE=NIFTI
 WORKDIR="work/"
 
 # Download Upstream Template
-echo "lala"
 get_resource "http://imaging.org.au/uploads/AMBMC/ambmc-c57bl6-model-symmet_v0.8-nii.tar.gz"
-echo "lulu"
 
 tar xvzf "${RESOURCE_PATH}" -C "${WORKDIR}"
 pushd "${WORKDIR}"
