@@ -8,3 +8,6 @@ dsurqec: code/dsurqec.sh
 
 abi: code/abi.sh
 	bash code/abi.sh
+
+abi2dsurqec: code/abi2dsurqec_40micron.sh
+	bash code/abi2dsurqec_40micron.sh
