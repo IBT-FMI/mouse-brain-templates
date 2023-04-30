@@ -39,7 +39,6 @@ pushd ${WDIR}
 		--convergence [ 400x400x400x200, 1e-9, 10 ] \
 		--smoothing-sigmas 3.0x2.0x1.0x0.0vox \
 		--shrink-factors 10x4x2x1 \
-		--use-estimate-learning-rate-once 0 \
 		--use-histogram-matching 1 \
 		\
 		--transform Affine[ 0.1 ] \
@@ -47,7 +46,6 @@ pushd ${WDIR}
 		--convergence [ 400x200, 1e-10, 10 ] \
 		--smoothing-sigmas 1.0x0.0vox \
 		--shrink-factors 2x1 \
-		--use-estimate-learning-rate-once 0 \
 		--use-histogram-matching 1 \
 		\
 		--transform SyN[0.1,3,0] \
