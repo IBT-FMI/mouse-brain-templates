@@ -71,8 +71,8 @@ if $MASK; then
 	PREFIX=${NAME[0]}
 	SUFFIX=_resampled.nii
 	MASK_NAME=$PREFIX$SUFFIX
-	echo ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION size=1 spacing=0 1
-	ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION size=1 spacing=0 1
+	echo "ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION 0 0 1"
+	ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION 0 0 1
 fi
 if [ "$MASK" == "false" ]; then
 	NAME=($(echo $IMAGE_NAME | tr "." "\n"))
@@ -82,7 +82,7 @@ if [ "$MASK" == "false" ]; then
 	fslmaths $IMAGE_NAME -thr 10 -bin $MASK_NAME
 fi
 
-echo mask created
+echo "mask created"
 
 NAME_M=($(echo $MASK_NAME | tr "." "\n"))
 PREFIX_M=${NAME_M[0]}
@@ -90,11 +90,11 @@ SUFFIX_M=_smoothed.nii
 SMOOTHED_MASK=$PREFIX_M$SUFFIX_M
 
 
-#smooth one mask 
+#smooth one mask
 SmoothImage 3 $MASK_NAME 6 $SMOOTHED_MASK
 
-#make mesh using marching cube. 
-echo mask smoothed
+#make mesh using marching cube.
+echo "mask smoothed"
 
 if $CUT; then
 	NAME_C=($(echo $IMAGE_NAME | tr "." "\n"))
@@ -108,7 +108,7 @@ if $CUT; then
 		python -c "import make_mesh; make_mesh.cut_img_mas(\"$IMAGE_NAME\",\"$OUTPUTFILE\",$SIZE,$AXIS,\"$TRIM_STARTING_FROM\")"
 		IMAGE_NAME=$OUTPUTFILE
 	fi
-	echo Image cut
+	echo "Image cut"
 fi
 
 if [ -f make_mesh.py ]; then
@@ -117,10 +117,10 @@ else
 	python ../make_mesh.py -i $IMAGE_NAME -m $SMOOTHED_MASK -t $TRESHHOLD
 fi
 
-echo mesh created
+echo "mesh created"
 
 
-#Decimate and smooth mesh using Blender 
+#Decimate and smooth mesh using Blender
 if $DECIMATE; then
 	MESH_NAME=$(find . -name '*.obj')
 	NAMES=($(echo $MESH_NAME | tr "\n" "\n"))
@@ -143,10 +143,6 @@ if $DECIMATE; then
 fi
 
 #Clean UP
-rm $SMOOTHED_MASK
-rm $OUTPUTFILE
-rm $MASK_NAME
-
-
-
-
+#rm $SMOOTHED_MASK
+#rm $OUTPUTFILE
+#rm $MASK_NAME
