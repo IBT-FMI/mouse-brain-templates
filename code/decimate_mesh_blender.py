@@ -31,7 +31,7 @@ args = parser.parse_args(argv)
 
 #Get rid of blender default objects
 for o in bpy.data.objects:
-	o.select=True
+	o.select_set(True)
 bpy.ops.object.delete()
 
 #Import Mesh
@@ -48,13 +48,15 @@ if (args.decimate):
 
 #add smooth modifier
 if (args.smooth):
-	Mesh.select = True
+	#Mesh.select = True
+	Mesh.select_set(True)
 	modifier_s = Mesh.modifiers.new("laplacesmooth",'LAPLACIANSMOOTH')
 	modifier_s.iterations = args.smooth_iterations
 	modifier_s.lambda_factor = args.smooth_lambda
 
 #Export as .obj file
-Mesh.select = True
+#Mesh.select = True
+Mesh.select_set(True)
 
 if (args.output_filename == ""):
 	print(args.filename)
