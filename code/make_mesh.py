@@ -198,11 +198,11 @@ def write_obj(name,verts,faces,normals,values,affine=None,one=False):
 	name : str
 		Ouput file name.
 	verts : array
-		Spatial coordinates for vertices as returned by skimage.measure.marching_cubes_lewiner().
+		Spatial coordinates for vertices as returned by skimage.measure.marching_cubes().
 	faces : array
-		List of faces, referencing indices of verts as returned by skimage.measure.marching_cubes_lewiner().
+		List of faces, referencing indices of verts as returned by skimage.measure.marching_cubes().
 	normals : array
-		Normal direction of each vertex as returned by skimage.measure.marching_cubes_lewiner().
+		Normal direction of each vertex as returned by skimage.measure.marching_cubes().
 	affine : array,optional
 		If given, vertices coordinates are affine transformed to create mesh with correct origin and size.
 	one : bool
@@ -246,7 +246,7 @@ def main():
 
 	#Replace inner values and run marching cube
 	img_data,iso_surface = remove_inner_surface(img_data,mask,args.treshhold)
-	verts, faces, normals, values = measure.marching_cubes_lewiner(img_data,iso_surface)
+	verts, faces, normals, values = measure.marching_cubes(img_data,iso_surface)
 
 	#save mesh as .obj
 	write_obj((path + (args.image_name).split(".")[0] + "_mesh_1.obj"),verts,faces,normals,values,affine = img.affine,one=True)
