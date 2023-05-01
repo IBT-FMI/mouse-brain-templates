@@ -246,6 +246,6 @@ def main():
 	verts, faces, normals, values = measure.marching_cubes(img_data,iso_surface)
 
 	#save mesh as .obj
-	write_obj((path + (args.image_name).split(".")[0] + "_mesh_1.obj"),verts,faces,normals,values,affine = img.affine,one=True)
+	write_obj(os.path.splitext(args.image_name)[0]+"_mesh_1.obj",verts,faces,normals,values,affine = img.affine,one=True)
 
 if __name__ == '__main__': main()

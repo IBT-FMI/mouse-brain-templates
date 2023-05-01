@@ -60,8 +60,7 @@ Mesh.select_set(True)
 
 if (args.output_filename == ""):
 	print(args.filename)
-	output_filename = path + str.split(args.filename,".obj")[0] + "_decimated.obj"
-	print( str.split(args.filename,".obj")[0])
+	output_filename = os.path.splitext(args.filename)[0] + "_decimated.obj"
 	print(output_filename)
 else:
 	output_filename = path + args.output_filename
