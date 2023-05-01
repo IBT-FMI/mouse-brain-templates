@@ -9,5 +9,8 @@ dsurqec: code/dsurqec.sh
 abi: code/abi.sh
 	bash code/abi.sh
 
-abi2dsurqec: code/abi2dsurqec_40micron.sh
+abi2dsurqec: abi dsurqec code/abi2dsurqec_40micron.sh
 	bash code/abi2dsurqec_40micron.sh
+
+mesh: ambmc dsurqec code/abi2dsurqec_40micron.sh
+	bash code/ambmc2dsurqec.sh

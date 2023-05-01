@@ -67,16 +67,15 @@ if $MASK; then
 	RESOLUTION=${RESOLUTION[1]}
 	CM=x
 	RESOLUTION=$RESOLUTION$CM$RESOLUTION$CM$RESOLUTION
-	NAME=($(echo $MASK_FILE | tr "." "\n"))
-	PREFIX=${NAME[0]}
+	##NAME=($(echo $MASK_FILE | tr "." "\n"))
+	PREFIX=${MASK_FILE%%.nii*}
 	SUFFIX=_resampled.nii
 	MASK_NAME=$PREFIX$SUFFIX
 	echo "ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION 0 0 1"
 	ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION 0 0 1
 fi
 if [ "$MASK" == "false" ]; then
-	NAME=($(echo $IMAGE_NAME | tr "." "\n"))
-	PREFIX=${NAME[0]}
+	PREFIX=${MASK_FILE%%.nii*}
 	SUFFIX=_mask.nii
 	MASK_NAME=$PREFIX$SUFFIX
 	fslmaths $IMAGE_NAME -thr 10 -bin $MASK_NAME
@@ -84,8 +83,7 @@ fi
 
 echo "mask created"
 
-NAME_M=($(echo $MASK_NAME | tr "." "\n"))
-PREFIX_M=${NAME_M[0]}
+PREFIX_M=${MASK_NAME%%.nii*}
 SUFFIX_M=_smoothed.nii
 SMOOTHED_MASK=$PREFIX_M$SUFFIX_M
 
@@ -97,8 +95,7 @@ SmoothImage 3 $MASK_NAME 6 $SMOOTHED_MASK
 echo "mask smoothed"
 
 if $CUT; then
-	NAME_C=($(echo $IMAGE_NAME | tr "." "\n"))
-	PREFIX_C=${NAME_C[0]}
+	PREFIX_C=${IMAGE_NAME%%.nii*}
 	SUFFIX_C="_cut.nii"
 	OUTPUTFILE=$PREFIX_C$SUFFIX_C
 	if $BOUNDARY; then
@@ -111,11 +108,7 @@ if $CUT; then
 	echo "Image cut"
 fi
 
-if [ -f make_mesh.py ]; then
-	python make_mesh.py -i $IMAGE_NAME -m $SMOOTHED_MASK -t $TRESHHOLD
-else
-	python ../make_mesh.py -i $IMAGE_NAME -m $SMOOTHED_MASK -t $TRESHHOLD
-fi
+python make_mesh.py -i $IMAGE_NAME -m $SMOOTHED_MASK -t $TRESHHOLD
 
 echo "mesh created"
 
@@ -125,19 +118,13 @@ if $DECIMATE; then
 	MESH_NAME=$(find . -name '*.obj')
 	NAMES=($(echo $MESH_NAME | tr "\n" "\n"))
 
-	if [ -f decimate_mesh_blender.py ]; then
-		for NAME in "${NAMES[@]}"
-		do
-			blender -b -P decimate_mesh_blender.py -- -f $NAME -r 0.4 -i 2 -n 4 -l 0.5
-			rm $NAME
-		done
-	else
-		for NAME in "${NAMES[@]}"
-		do
-			blender -b -P ../decimate_mesh_blender.py -- -f $NAME -r 0.4 -i 2 -n 4 -l 0.5
-			rm $NAME
-		done
-	fi
+	for NAME in "${NAMES[@]}"
+	do
+		# Blender may be installed with version number in binary
+		BLENDER_EXEC=$(find /usr/bin/ -regex ".*/blender-?[0-9]?\.?[0-9]?" | tail -1)
+		$BLENDER_EXEC -b -P decimate_mesh_blender.py -- -f $NAME -r 0.4 -i 2 -n 4 -l 0.5
+		#rm $NAME
+	done
 
 	echo mesh processed
 fi
