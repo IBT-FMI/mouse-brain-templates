@@ -20,17 +20,11 @@ FSLOUTPUTTYPE=NIFTI
 # Make legacy versions
 pushd ${WDIR}
 	fslswapdim ambmc_200micron_roi-dr.nii x -y z lambmc_200micron_roi-dr.nii
-	echo "A"
 	fslorient -deleteorient lambmc_200micron_roi-dr.nii
-	echo "B"
 	fslchpixdim lambmc_200micron_roi-dr.nii 2.0 2.0 2.0
-	echo "C"
 	fslswapdim dsurqec_200micron_roi-dr.nii x -y z ldsurqec_200micron_roi-dr.nii
-	echo "D"
 	fslorient -deleteorient ldsurqec_200micron_roi-dr.nii
-	echo "E"
 	fslchpixdim ldsurqec_200micron_roi-dr.nii 2.0 2.0 2.0
-	echo "F"
 popd
 
 FSLOUTPUTTYPE=$OLD_FSLOUTPUTTYPE
