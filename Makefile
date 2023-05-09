@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+OUTDIR = mouse-brain-templates/
+
 ambmc: code/ambmc.sh
 	bash code/ambmc.sh
 
@@ -12,5 +14,34 @@ abi: code/abi.sh
 abi2dsurqec: abi dsurqec code/abi2dsurqec_40micron.sh
 	bash code/abi2dsurqec_40micron.sh
 
-mesh: ambmc dsurqec code/abi2dsurqec_40micron.sh
+ambmc2dsurqec: ambmc dsurqec code/abi2dsurqec_40micron.sh
 	bash code/ambmc2dsurqec.sh
+
+roi: code/roi.sh
+	bash code/roi.sh
+
+mesh: ambmc2dsurqec code/make_mesh.sh code/make_mesh.py code/decimate_mesh_blender.py
+	cd code; bash make_mesh.sh -i "${WDIR}/ambmc2dsurqec_15micron.nii" -t 640000 -m "${WDIR}/dsurqec_40micron_mask.nii" -c -s 20 -a 1 -d beginning -b -x
+
+all: ambmc dsurqec abi abi2dsurqec ambmc2dsurqued mesh
+
+copy: all
+	cp code/FAIRUSE-AND-CITATION $(OUTDIR)
+	cp work/abi2dsurqec_40micron*.nii $(OUTDIR)
+	cp work/abi2dsurqec_Composite.h5
+	cp work/abi_{200,40}micron*nii
+	cp work/ambmc_{200,40}micron*nii
+	cp work/ambmc_{COPYING,README}
+	# Also need: /usr/share/mouse-brain-templates/ambmc_200micron_roi-dr.nii
+	cp resources/dsurqe_labels.csv
+	cp dsurqec_40micron_labels.nii
+	cp dsurqec_{200,40}micron.nii
+	cp dsurqec_{200,40}micron_mask.nii
+	cp dsurqec_{200,40}micron_masked.nii
+	# Also need: /usr/share/mouse-brain-templates/dsurqec_200micron_roi-dr.nii
+	/usr/share/mouse-brain-templates/lambmc_{200,40}micron.nii
+	/usr/share/mouse-brain-templates/lambmc_{200,40}micron_mask.nii
+	# Also need: /usr/share/mouse-brain-templates/lambmc_200micron_roi-dr.nii
+	/usr/share/mouse-brain-templates/ldsurqec_{200,40}micron_mask.nii
+	/usr/share/mouse-brain-templates/ldsurqec_{200.40}micron_masked.nii
+	# Also need: /usr/share/mouse-brain-templates/ldsurqec_200micron_roi-dr.nii

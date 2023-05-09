@@ -55,9 +55,6 @@ pushd ${WDIR}
 
 	fslorient -copyqform2sform ambmc2dsurqec_15micron.nii
 
-	#Make mesh file of transformed atlas
-	bash code/make_mesh.sh -i "${WDIR}/ambmc2dsurqec_15micron.nii" -t 640000 -m "${WDIR}/dsurqec_40micron_mask.nii" -c -s 20 -a 1 -d beginning -b -x
-
 	#apply mask
 	#ResampleImage 3 dsurqec_40micron_mask.nii dsurqec_15micron_mask.nii 0.015x0.015x0.015 size=1 spacing=0 1
 	ResampleImage 3 dsurqec_40micron_mask.nii dsurqec_15micron_mask.nii 0.015x0.015x0.015 0 0 1

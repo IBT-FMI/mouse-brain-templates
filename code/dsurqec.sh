@@ -10,7 +10,7 @@ WDIR="work/"
 get_resource "http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti/DSURQE_40micron_average.nii"
 get_resource "http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti/DSURQE_40micron_labels.nii"
 get_resource "http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti/DSURQE_40micron_mask.nii"
-get_resource "http://chymera.eu/distfiles/dsurqe_labels.csv"
+get_resource "http://resources.chymera.eu/distfiles/dsurqe_labels.csv"
 
 cp "${RDIR}/DSURQE_40micron_average.nii" "${WDIR}/dsurqec_40micron.nii"
 cp "${RDIR}/DSURQE_40micron_labels.nii" "${WDIR}/dsurqec_40micron_labels.nii"
