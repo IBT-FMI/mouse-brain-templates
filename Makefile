@@ -28,20 +28,20 @@ all: ambmc dsurqec abi abi2dsurqec ambmc2dsurqued mesh
 copy: all
 	cp code/FAIRUSE-AND-CITATION $(OUTDIR)
 	cp work/abi2dsurqec_40micron*.nii $(OUTDIR)
-	cp work/abi2dsurqec_Composite.h5
-	cp work/abi_{200,40}micron*nii
-	cp work/ambmc_{200,40}micron*nii
-	cp work/ambmc_{COPYING,README}
-	# Also need: /usr/share/mouse-brain-templates/ambmc_200micron_roi-dr.nii
-	cp resources/dsurqe_labels.csv
-	cp dsurqec_40micron_labels.nii
-	cp dsurqec_{200,40}micron.nii
-	cp dsurqec_{200,40}micron_mask.nii
-	cp dsurqec_{200,40}micron_masked.nii
-	# Also need: /usr/share/mouse-brain-templates/dsurqec_200micron_roi-dr.nii
-	/usr/share/mouse-brain-templates/lambmc_{200,40}micron.nii
-	/usr/share/mouse-brain-templates/lambmc_{200,40}micron_mask.nii
-	# Also need: /usr/share/mouse-brain-templates/lambmc_200micron_roi-dr.nii
-	/usr/share/mouse-brain-templates/ldsurqec_{200,40}micron_mask.nii
-	/usr/share/mouse-brain-templates/ldsurqec_{200.40}micron_masked.nii
-	# Also need: /usr/share/mouse-brain-templates/ldsurqec_200micron_roi-dr.nii
+	cp work/abi2dsurqec_Composite.h5 $(OUTDIR)
+	cp work/abi_{200,40}micron*nii $(OUTDIR)
+	cp work/ambmc_{200,40}micron*nii $(OUTDIR)
+	cp work/ambmc_{COPYING,README} $(OUTDIR)
+	cp work/ambmc_200micron_roi-dr.nii $(OUTDIR)
+	cp resources/dsurqe_labels.csv $(OUTDIR)
+	cp dsurqec_40micron_labels.nii $(OUTDIR)
+	cp dsurqec_{200,40}micron.nii $(OUTDIR)
+	cp dsurqec_{200,40}micron_mask.nii $(OUTDIR)
+	cp dsurqec_{200,40}micron_masked.nii $(OUTDIR)
+	cp work/dsurqec_200micron_roi-dr.nii $(OUTDIR)
+	cp work/lambmc_{200,40}micron.nii $(OUTDIR)
+	cp work/lambmc_{200,40}micron_mask.nii $(OUTDIR)
+	cp work/lambmc_200micron_roi-dr.nii $(OUTDIR)
+	cp work/ldsurqec_{200,40}micron_mask.nii $(OUTDIR)
+	cp work/ldsurqec_{200.40}micron_masked.nii $(OUTDIR)
+	cp work/ldsurqec_200micron_roi-dr.nii $(OUTDIR)
