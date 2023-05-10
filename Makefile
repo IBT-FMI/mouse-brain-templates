@@ -25,7 +25,7 @@ mesh: ambmc2dsurqec code/make_mesh.sh code/make_mesh.py code/decimate_mesh_blend
 
 all: ambmc dsurqec abi abi2dsurqec ambmc2dsurqued mesh
 
-copy: all
+publish: all
 	cp code/FAIRUSE-AND-CITATION $(OUTDIR)
 	cp work/abi2dsurqec_40micron*.nii $(OUTDIR)
 	cp work/abi2dsurqec_Composite.h5 $(OUTDIR)
@@ -45,3 +45,9 @@ copy: all
 	cp work/ldsurqec_{200,40}micron_mask.nii $(OUTDIR)
 	cp work/ldsurqec_{200.40}micron_masked.nii $(OUTDIR)
 	cp work/ldsurqec_200micron_roi-dr.nii $(OUTDIR)
+
+release: code/versioncheck.sh
+	$(if $(VERSION),,$(error VERSION is not defined))
+	@code/versioncheck.sh $(VERSION)
+	tar cJf releases/mouse-brain-templates-${VERSION}.tar.xz mouse-brain-templates/
+
