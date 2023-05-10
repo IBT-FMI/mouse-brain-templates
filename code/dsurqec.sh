@@ -12,6 +12,8 @@ get_resource "http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti/DSURQE_40mi
 get_resource "http://repo.mouseimaging.ca/repo/DSURQE_40micron_nifti/DSURQE_40micron_mask.nii"
 get_resource "http://resources.chymera.eu/distfiles/dsurqe_labels.csv"
 
+mkdir -p "${WDIR}"
+
 cp "${RDIR}/DSURQE_40micron_average.nii" "${WDIR}/dsurqec_40micron.nii"
 cp "${RDIR}/DSURQE_40micron_labels.nii" "${WDIR}/dsurqec_40micron_labels.nii"
 cp "${RDIR}/DSURQE_40micron_mask.nii" "${WDIR}/dsurqec_40micron_mask.nii"

@@ -26,6 +26,7 @@ mesh: ambmc2dsurqec code/make_mesh.sh code/make_mesh.py code/decimate_mesh_blend
 all: ambmc dsurqec abi abi2dsurqec ambmc2dsurqued mesh
 
 publish: all
+	@mkdir -p $(OUTDIR)
 	cp code/FAIRUSE-AND-CITATION $(OUTDIR)
 	cp work/abi2dsurqec_40micron*.nii $(OUTDIR)
 	cp work/abi2dsurqec_Composite.h5 $(OUTDIR)

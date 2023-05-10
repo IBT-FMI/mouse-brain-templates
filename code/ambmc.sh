@@ -7,13 +7,14 @@ OLD_FSLOUTPUTTYPE=$FSLOUTPUTTYPE
 FSLOUTPUTTYPE=NIFTI
 
 # Direcotries
-WORKDIR="work/"
+WDIR="work/"
 
 # Download Upstream Template
 get_resource "http://imaging.org.au/uploads/AMBMC/ambmc-c57bl6-model-symmet_v0.8-nii.tar.gz"
 
-tar xvzf "${RESOURCE_PATH}" -C "${WORKDIR}"
-pushd "${WORKDIR}"
+mkdir -p "${WDIR}"
+tar xvzf "${RESOURCE_PATH}" -C "${WDIR}"
+pushd "${WDIR}"
 	cp ambmc-c57bl6-model-symmet_v0.8-nii/ambmc-c57bl6-model-symmet_v0.8.nii _ambmc_15micron.nii
 	cp ambmc-c57bl6-model-symmet_v0.8-nii/COPYING ambmc_COPYING
 	cp ambmc-c57bl6-model-symmet_v0.8-nii/README ambmc_README

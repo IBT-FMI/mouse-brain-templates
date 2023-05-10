@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+RDIR="resources/"
+
 get_resource () {
+	mkdir -p "${RDIR}"
 	RESOURCE_NAME=${1##*/}
-	echo ${RESOURCE_NAME}
-	RESOURCE_PATH="resources/${RESOURCE_NAME}"
+	RESOURCE_PATH="${RDIR}${RESOURCE_NAME}"
 	echo ${RESOURCE_PATH}
 	if [[ ! -f  ${RESOURCE_PATH} ]]; then
 		if datalad get "${RESOURCE_PATH}" ; then

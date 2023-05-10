@@ -9,6 +9,9 @@ WDIR="work/"
 # Download Upstream Template
 get_resource "http://resources.chymera.eu/distfiles/ambmc_200micron_roi-dr.nii"
 get_resource "http://resources.chymera.eu/distfiles/dsurqec_200micron_roi-dr.nii"
+
+mkdir -p "${WDIR}"
+
 cp "${RDIR}/ambmc_200micron_roi-dr.nii" ${WDIR}
 cp "${RDIR}/dsurqec_200micron_roi-dr.nii" ${WDIR}
 
