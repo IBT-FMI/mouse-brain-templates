@@ -16,13 +16,9 @@ pushd ${WDIR}
 	fslorient -copyqform2sform abi_200micron_average.nii
 
 	#Correct resamoling of the annotation files: Use antsAppyTransform with Identity matrix. Multilabel interpolation can be used which is not possible in ResampleImage
-	echo "lala"
 	antsApplyTransforms -d 3 -e 0 -i abi_10micron_annotation.nii -r abi_15micron_average.nii -o abi_15micron_annotation.nii -n MultiLabel -t Identity
-	echo "lele"
 	fslorient -copyqform2sform abi_15micron_annotation.nii
-	echo "lili"
 	antsApplyTransforms -d 3 -e 0 -i abi_10micron_annotation.nii -r abi_40micron_average.nii -o abi_40micron_annotation.nii -n MultiLabel -t Identity
-	echo "lolo"
 	fslorient -copyqform2sform abi_40micron_annotation.nii
 
 	# Registration call
