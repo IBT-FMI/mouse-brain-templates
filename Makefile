@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+
+# This makefile will reexecute targets even if the output workfiles exist.
+# Given how time-consuming the ANTs parts are in particular this leads to a lot of wasted time.
+# The efficiency of the code could be improved by using pattern rules:
+# https://www.cmcrossroads.com/article/rules-multiple-outputs-gnu-make
+
 OUTDIR = mouse-brain-templates/
 
 ambmc: code/ambmc.sh
