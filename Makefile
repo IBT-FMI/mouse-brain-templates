@@ -28,9 +28,9 @@ roi: code/roi.sh
 	bash code/roi.sh
 
 mesh: ambmc2dsurqec code/make_mesh.sh code/make_mesh.py code/decimate_mesh_blender.py
-	cd code; bash make_mesh.sh -i "${WDIR}ambmc2dsurqec_15micron.nii" -t 640000 -m "${WDIR}dsurqec_40micron_mask.nii" -c -s 20 -a 1 -d beginning -b -x
+	cd code; bash make_mesh.sh -i "../${WDIR}ambmc2dsurqec_15micron.nii" -t 640000 -m "../${WDIR}dsurqec_40micron_mask.nii" -c -s 20 -a 1 -d beginning -b -x
 
-all: ambmc dsurqec abi abi2dsurqec ambmc2dsurqec mesh
+all: ambmc dsurqec abi abi2dsurqec ambmc2dsurqec roi mesh
 
 publish: all
 	@mkdir -p $(OUTDIR)
