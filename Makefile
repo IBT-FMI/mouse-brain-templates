@@ -51,7 +51,7 @@ publish: all
 	cp work/lambmc_{200,40}micron_mask.nii $(OUTDIR)
 	cp work/lambmc_200micron_roi-dr.nii $(OUTDIR)
 	cp work/ldsurqec_{200,40}micron_mask.nii $(OUTDIR)
-	cp work/ldsurqec_{200.40}micron_masked.nii $(OUTDIR)
+	cp work/ldsurqec_{200,40}micron_masked.nii $(OUTDIR)
 	cp work/ldsurqec_200micron_roi-dr.nii $(OUTDIR)
 
 release: code/versioncheck.sh
