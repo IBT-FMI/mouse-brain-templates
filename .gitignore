@@ -1,7 +1,4 @@
-# Archives:
-*tar.gz
-*tar.xz
-*zip
+#Pycache traces:
 
-# Distfiles
-mouse-brain-atlases*
+__pycache__
+*/__pycache__
