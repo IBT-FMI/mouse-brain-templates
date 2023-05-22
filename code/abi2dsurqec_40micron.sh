@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Variables
+ANTS_RANDOM_SEED=3 
+
 # Directories
 WDIR="work/"
 
