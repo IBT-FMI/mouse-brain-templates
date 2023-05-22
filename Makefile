@@ -59,3 +59,5 @@ release: code/versioncheck.sh
 	@code/versioncheck.sh $(VERSION)
 	tar cJf releases/mouse-brain-templates-${VERSION}.tar.xz mouse-brain-templates/
 
+clean:
+	rm work/ -rf
