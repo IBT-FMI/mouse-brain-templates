@@ -1,0 +1,183 @@
+Structure number,Structure,right label,left label,hierarchy,tissue type
+1,amygdala,51,151,,GM
+2,anterior commissure: pars anterior,115,215,,WM
+3,anterior commissure: pars posterior,23,103,,WM
+4,basal forebrain,52,152,,GM
+5,bed nucleus of stria terminalis,176,76,,GM
+6,cerebellar peduncle: inferior,123,223,,WM
+7,cerebellar peduncle: middle,45,245,,WM
+8,cerebellar peduncle: superior,242,222,,WM
+9,cerebral aqueduct,119,119,,CSF
+10,cerebral peduncle,114,14,,WM
+11,colliculus: inferior,143,43,,GM
+12,colliculus: superior,9,109,,GM
+13,corpus callosum,8,68,,WM
+14,corticospinal tract/pyramids,218,18,,WM
+15,cuneate nucleus,166,168,,GM
+16,facial nerve (cranial nerve 7),19,219,,GM
+17,fasciculus retroflexus,25,125,,WM
+18,fimbria,211,11,,WM
+19,fornix,122,22,,WM
+20,fourth ventricle,118,118,,CSF
+21,fundus of striatum,54,154,,GM
+22,globus pallidus,44,144,,GM
+23,habenular commissure,99,199,,WM
+24,hypothalamus,250,150,,GM
+25,inferior olivary complex,113,213,,GM
+26,internal capsule,112,12,,WM
+27,interpedunclar nucleus,157,157,,GM
+28,lateral olfactory tract,101,102,,WM
+29,lateral septum,207,107,,
+30,lateral ventricle,57,77,,CSF
+31,mammillary bodies,161,61,,GM
+32,mammilothalamic tract,210,212,,WM
+33,medial lemniscus/medial longitudinal fasciculus,20,120,,WM
+34,medial septum,53,153,,
+35,medulla,174,174,,
+36,midbrain,194,194,,
+37,nucleus accumbens,55,155,,GM
+38,olfactory peduncle,5,105,Olfactory bulbs,GM
+39,olfactory tubercle,95,145,,GM
+40,optic tract,216,116,,WM
+41,periaqueductal grey,10,10,,GM
+42,pons,187,187,,GM
+43,pontine nucleus,85,185,,GM
+44,posterior commissure,100,100,,WM
+45,pre-para subiculum,133,131,,GM
+46,stria medullaris,225,205,,GM
+47,stria terminalis,59,159,,GM
+48,striatum,7,17,,GM
+49,subependymale zone / rhinocele,240,140,,GM
+50,superior olivary complex,124,214,,GM
+51,thalamus,204,4,,GM
+52,third ventricle,146,146,,CSF
+53,ventral tegmental decussation,156,156,,WM
+54,lobules 1-2: lingula and central lobule (ventral),32,32,cerebellar vermis,GM
+55,lobule 3: central lobule (dorsal),233,233,cerebellar vermis,GM
+56,lobules 4-5: culmen (ventral and dorsal),34,34,cerebellar vermis,GM
+57,lobule 6: declive,36,36,cerebellar vermis,GM
+58,lobule 7: tuber (or folium),237,237,cerebellar vermis,GM
+59,lobule 8: pyramis,38,38,cerebellar vermis,GM
+60,lobule 9: uvula,239,239,cerebellar vermis,GM
+61,lobule 10: nodulus,40,40,cerebellar vermis,GM
+62,anterior lobule  (lobules 4-5),90,148,cerebellar paravermis,GM
+63,simple lobule (lobule 6),191,91,cerebellar hemisphere,GM
+64,crus 1: ansiform lobule (lobule 6),92,192,cerebellar hemisphere,GM
+65,crus 2: ansiform lobule (lobule 7),193,93,cerebellar hemisphere,GM
+66,paramedian lobule (lobule 7),94,200,cerebellar hemisphere,GM
+67,copula: pyramis (lobule 8),196,96,cerebellar hemisphere,GM
+68,flocculus (FL),97,197,cerebellar flocculonodular lobe,GM
+69,paraflocculus (PFL),198,98,cerebellar flocculonodular lobe,GM
+70,trunk of arbor vita,47,47,cerebellar white matter,WM
+71,lobule 1-2 white matter,232,232,cerebellar vermis white matter,WM
+72,lobule 3 white matter,33,33,cerebellar vermis white matter,WM
+73,trunk of lobules 1-3 white matter,253,253,cerebellar vermis white matter,WM
+74,lobules 4-5 white matter,234,234,cerebellar vermis white matter,WM
+75,lobules 6-7 white matter,236,236,cerebellar vermis white matter,WM
+76,lobule 8 white matter,238,238,cerebellar vermis white matter,WM
+77,trunk of lobules 6-8 white matter,254,254,cerebellar vermis white matter,WM
+78,lobule 9 white matter,139,139,cerebellar vermis white matter,WM
+79,lobule 10 white matter,252,252,cerebellar vermis white matter,WM
+80,anterior lobule white matter,21,31,cerebellar paravermis white matter,
+81,simple lobule white matter,241,251,cerebellar white matter,WM
+82,crus 1 white matter,220,170,cerebellar white matter,WM
+83,trunk of simple and crus 1 white matter,226,246,cerebellar white matter,WM
+84,crus 2 white matter,229,249,cerebellar white matter,WM
+85,paramedian lobule,228,248,cerebellar white matter,WM
+86,trunk of crus 2 and paramedian white matter,175,195,cerebellar white matter,WM
+87,copula white matter,224,244,cerebellar white matter,WM
+88,paraflocculus white matter,183,243,cerebellar flocculonodular lobe white matter,WM
+89,flocculus white matter,167,177,cerebellar flocculonodular lobe white matter,WM
+90,dentate nucleus,1,201,deep cerebellar nuclei,GM
+91,nucleus interpositus,203,3,deep cerebellar nuclei,GM
+92,fastigial nucleus,15,206,deep cerebellar nuclei,GM
+93,Cingulate cortex: area 24a,24,169,Cingulate region,GM
+94,Cingulate cortex: area 24a',26,171,Cingulate region,GM
+95,Cingulate cortex: area 24b,27,172,Cingulate region,GM
+96,Cingulate cortex: area 24b',28,173,Cingulate region,GM
+97,Cingulate cortex: area 25,29,178,Cingulate region,GM
+98,Cingulate cortex: area 29a,30,179,Cingulate region,GM
+99,Cingulate cortex: area 29b,35,182,Cingulate region,GM
+100,Cingulate cortex: area 29c,37,184,Cingulate region,GM
+101,Cingulate cortex: area 30,39,186,Cingulate region,GM
+102,Cingulate cortex: area 32,41,188,Cingulate region,GM
+103,Amygdalopiriform transition area,42,189,Piriform cortex area,GM
+104,Primary auditory cortex,46,208,Temporal region,GM
+105,Secondary auditory cortex: dorsal area,48,217,Temporal region,GM
+106,Secondary auditory cortex: ventral area,49,221,Temporal region,GM
+107,Caudomedial entorhinal cortex,50,227,Entorhinal cortex,GM
+108,Cingulum ,56,231,Fiber Groups,WM
+109,Claustrum,58,235,Insular claustrum,GM
+110,Cortex-amygdala transition zones,60,255,Piriform cortex area,GM
+111,Claustrum: dorsal part,62,256,Insular claustrum,GM
+112,Dorsal nucleus of the endopiriform,65,257,Endopiriform claustrum,GM
+113,Dorsal intermediate entorhinal cortex,67,258,Entorhinal cortex,GM
+114,Dorsolateral entorhinal cortex,69,259,Entorhinal cortex,GM
+115,Dorsolateral orbital cortex,70,260,Frontal region,GM
+116,Dorsal tenia tecta,71,261,Entorhinal cortex,GM
+117,Ectorhinal cortex,72,262,Insular region,GM
+118,Frontal cortex: area 3,73,263,Frontal region,GM
+119,Frontal association cortex,74,264,Frontal region,GM
+120,Intermediate nucleus of the endopiriform claustrum,75,265,Endopiriform claustrum,GM
+121,Insular region: not subdivided,78,266,Insular region,GM
+122,Lateral orbital cortex,79,267,Frontal region,GM
+123,Lateral parietal association cortex,80,268,Parietal region,GM
+124,Primary motor cortex,81,269,Frontal region,GM
+125,Secondary motor cortex,82,270,Frontal region,GM
+126,Medial entorhinal cortex,83,271,Entorhinal cortex,GM
+127,Medial orbital cortex,84,272,Frontal region,GM
+128,Medial parietal association cortex,86,273,Parietal region,GM
+129,Piriform cortex,87,274,Piriform cortex area,GM
+130,Posterolateral cortical amygdaloid area ,88,275,Piriform cortex area,GM
+131,Posteromedial cortical amygdaloid area ,89,276,Piriform cortex area,GM
+132,Perirhinal cortex,104,277,Insular region,GM
+133,Parietal cortex: posterior area: rostral part,108,278,Parietal region,GM
+134,Rostral amygdalopiriform area,110,279,Piriform cortex area,GM
+135,Primary somatosensory cortex,111,280,Parietal region,GM
+136,Primary somatosensory cortex: barrel field,117,281,Parietal region,GM
+137,Primary somatosensory cortex: dysgranular zone,121,282,Parietal region,GM
+138,Primary somatosensory cortex: forelimb region,126,283,Parietal region,GM
+139,Primary somatosensory cortex: hindlimb region,127,284,Parietal region,GM
+140,Primary somatosensory cortex: jaw region,128,285,Parietal region,GM
+141,Primary somatosensory cortex: shoulder region,129,286,Parietal region,GM
+142,Primary somatosensory cortex: trunk region,132,287,Parietal region,GM
+143,Primary somatosensory cortex: upper lip region,134,288,Parietal region,GM
+144,Secondary somatosensory cortex,135,289,Parietal region,GM
+145,Temporal association area,136,290,Temporal region,GM
+146,Primary visual cortex,137,291,Occipital region,GM
+147,Primary visual cortex: binocular area,138,292,Occipital region,GM
+148,Primary visual cortex: monocular area,141,293,Occipital region,GM
+149,Secondary visual cortex: lateral area,142,294,Occipital region,GM
+150,Secondary visual cortex: mediolateral area,147,295,Occipital region,GM
+151,Secondary visual cortex: mediomedial area,149,296,Occipital region,GM
+152,Claustrum: ventral part,158,297,Insular claustrum,GM
+153,Ventral nucleus of the endopiriform claustrum,160,298,Endopiriform claustrum,GM
+154,Ventral intermediate entorhinal cortex,162,299,Entorhinal cortex,GM
+155,Ventral orbital cortex,163,300,Frontal region,GM
+156,Ventral tenia tecta,165,301,Entorhinal cortex,GM
+157,CA10r,336,305,Hippocampal region,GM
+158,LMol,306,307,Hippocampal region,GM
+159,CA1Rad,308,309,Hippocampal region,GM
+160,CA2Py,310,311,Hippocampal region,GM
+161,CA20r,312,313,Hippocampal region,GM
+162,CA2Rad,314,315,Hippocampal region,GM
+163,CA3Py Inner,316,317,Hippocampal region,GM
+164,CA3Py Outer,318,319,Hippocampal region,GM
+165,CA30r,320,321,Hippocampal region,GM
+166,CA3Rad,322,323,Hippocampal region,GM
+167,SLu,324,325,Hippocampal region,GM
+168,MoDG right,326,327,Hippocampal region,GM
+169,GrDG,328,329,Hippocampal region,GM
+170,PoDG,330,331,Hippocampal region,GM
+171,CA1Py,334,335,Hippocampal region,GM
+172,Olfactory bulb: glomerular layer ,337,345,Olfactory bulbs,GM
+173,Olfactory bulb: external plexiform layer ,338,346,Olfactory bulbs,GM
+174,Olfactory bulb: mitral cell layer,339,347,Olfactory bulbs,GM
+175,Olfactory bulb: internal plexiform layer ,340,348,Olfactory bulbs,GM
+176,Olfactory bulb: granule cell layer,341,349,Olfactory bulbs,GM
+177,"Accessory olfactory bulb: glomerular, external plexiform and mitral cell layer",342,350,Olfactory bulbs,GM
+178,Accessory olfactory bulb: granule cell layer,343,351,Olfactory bulbs,GM
+179,Anterior olfactory nucleus,344,352,Olfactory bulbs,GM
+180,subiculum,332,333,,GM
+181,Medial amygdala,353,355,,GM
+182,Medial preoptic nucleus,354,356,,GM
