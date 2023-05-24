@@ -1,0 +1,23 @@
+c57bl/6j Symmetric Average wild-type C57BL/6J mouse 3D MRI model
+----------------------------------------------------------------
+
+Revisions History:
+
+2013-04-30 - 0.8
+   - Initial Public release on imaging.org.au
+
+
+This is a model built from 14 ex-vivo mouse brain images taken at 16.4T. 
+The individuals were averaged using volgenmodel available on github 
+
+   https://github.com/andrewjanke/volgenmodel
+
+This model is distributed in both MINC and NIfTI formats
+
+For more details please see:
+
+   http://www.imaging.org.au/AMBMC/Model
+
+If you use this model in your work or for more details on the model generation please reference this paper
+
+Janke AL, Ullmann J, Kurniawan N, Paxinos G, Keller M, Yang Z, Richards K, Egan G, Petrou S, Galloway G, Reutens D. (2012) 15μm average mouse models in Waxholm space from 16.4T 30μm images. In 20th Annual ISMRM Scientific Meeting and Exhibition, Melbourne, Australia.
