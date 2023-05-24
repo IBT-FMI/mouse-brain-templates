@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 # This makefile will reexecute targets even if the output workfiles exist.
 # Given how time-consuming the ANTs parts are in particular this leads to a lot of wasted time.
 # The efficiency of the code could be improved by using pattern rules:
@@ -32,13 +31,14 @@ mesh: ambmc2dsurqec code/make_mesh.sh code/make_mesh.py code/decimate_mesh_blend
 
 all: ambmc dsurqec abi abi2dsurqec ambmc2dsurqec roi mesh
 
-publish: all
+copy:
 	@mkdir -p $(OUTDIR)
+	rm mouse-brain-templates/* -rf
 	cp code/FAIRUSE-AND-CITATION $(OUTDIR)
 	cp work/abi2dsurqec_40micron*.nii $(OUTDIR)
 	cp work/abi2dsurqec_Composite.h5 $(OUTDIR)
 	cp work/abi_{200,40}micron*nii $(OUTDIR)
-	cp work/ambmc_{200,40}micron*nii $(OUTDIR)
+	cp work/ambmc_{200,40}micron{_mask,}.nii $(OUTDIR)
 	cp work/ambmc_{COPYING,README} $(OUTDIR)
 	cp work/ambmc_200micron_roi-dr.nii $(OUTDIR)
 	cp resources/dsurqe_labels.csv $(OUTDIR)
@@ -53,6 +53,9 @@ publish: all
 	cp work/ldsurqec_{200,40}micron_mask.nii $(OUTDIR)
 	cp work/ldsurqec_{200,40}micron_masked.nii $(OUTDIR)
 	cp work/ldsurqec_200micron_roi-dr.nii $(OUTDIR)
+	@chmod -R 664 mouse-brain-templates/*
+
+publish: all copy
 
 release: code/versioncheck.sh
 	$(if $(VERSION),,$(error VERSION is not defined))
