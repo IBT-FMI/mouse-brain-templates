@@ -53,6 +53,14 @@ copy:
 	cp work/ldsurqec_{200,40}micron_mask.nii $(OUTDIR)
 	cp work/ldsurqec_{200,40}micron_masked.nii $(OUTDIR)
 	cp work/ldsurqec_200micron_roi-dr.nii $(OUTDIR)
+	cp work/abi_15micron_annotation.nii $(OUTDIR)
+	cp work/abi_15micron_average.nii $(OUTDIR)
+	cp work/ambmc2dsurqec_15micron_masked.nii $(OUTDIR)
+	cp work/ambmc2dsurqec_15micron_masked.obj $(OUTDIR)
+	cp work/ambmc_15micron.nii $(OUTDIR)
+	cp work/ambmc_15micron_mask.nii $(OUTDIR)
+	cp work/lambmc_15micron.nii $(OUTDIR)
+	cp work/lambmc_15micron_mask.nii $(OUTDIR)
 	@chmod -R 664 mouse-brain-templates/*
 
 publish: all copy
