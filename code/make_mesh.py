@@ -226,6 +226,7 @@ def write_obj(name,verts,faces,normals,values,affine=None,one=False):
 def main():
 	parser = argparse.ArgumentParser(description="Create surface mesh form nifti-volume",formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 	parser.add_argument('--treshhold','-t',default=0,type=float)
+	parser.add_argument('--outfile','-o',default="",type=str)
 	parser.add_argument('--image_name','-i',type=str)
 	parser.add_argument('--mask_name','-m',type=str)
 	parser.add_argument('--cut', '-c',type=int,nargs = '*')
@@ -246,6 +247,10 @@ def main():
 	verts, faces, normals, values = measure.marching_cubes(img_data,iso_surface)
 
 	#save mesh as .obj
-	write_obj(os.path.splitext(args.image_name)[0]+"_mesh_1.obj",verts,faces,normals,values,affine = img.affine,one=True)
+	if not args.outfile:
+		outfile = os.path.splitext(args.image_name)[0]+"_mesh_1.obj"
+	else:
+		outfile = args.outfile
+	write_obj(outfile,verts,faces,normals,values,affine = img.affine,one=True)
 
 if __name__ == '__main__': main()
