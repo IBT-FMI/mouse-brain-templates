@@ -71,33 +71,35 @@ if $MASK; then
 	PREFIX=${MASK_FILE%%.nii*}
 	SUFFIX=_resampled.nii
 	MASK_NAME=$PREFIX$SUFFIX
-	echo "ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION 0 0 1"
+	echo "Resampling \`${MASK_FILE}\` to \`${MASK_NAME}\`."
 	ResampleImage 3 $MASK_FILE $MASK_NAME $RESOLUTION 0 0 1
+	echo "	✔️ Mask resampled."
 fi
 if [ "$MASK" == "false" ]; then
 	PREFIX=${MASK_FILE%%.nii*}
 	SUFFIX=_mask.nii
 	MASK_NAME=$PREFIX$SUFFIX
+	echo "Creating \`${MASK_NAME}\` mask from hard-coded threshold."
 	fslmaths $IMAGE_NAME -thr 10 -bin $MASK_NAME
+	echo "	✔️ Created mask."
 fi
 
-echo "mask created"
 
 PREFIX_M=${MASK_NAME%%.nii*}
 SUFFIX_M=_smoothed.nii
 SMOOTHED_MASK=$PREFIX_M$SUFFIX_M
 
-
 #smooth one mask
+echo "Smoothing \`${MASK_NAME}\` mask."
 SmoothImage 3 $MASK_NAME 6 $SMOOTHED_MASK
+echo "	✔️ Mask smoothed."
 
 #make mesh using marching cube.
-echo "mask smoothed"
-
 if $CUT; then
 	PREFIX_C=${IMAGE_NAME%%.nii*}
 	SUFFIX_C="_cut.nii"
 	OUTPUTFILE=$PREFIX_C$SUFFIX_C
+	echo "Cutting image \`${IMAGE_NAME}\`."
 	if $BOUNDARY; then
 		python -c "import make_mesh; make_mesh.cut_img_mas(\"$IMAGE_NAME\",\"$OUTPUTFILE\",$SIZE,$AXIS,\"$TRIM_STARTING_FROM\",\"$MASK_NAME\")"
 		IMAGE_NAME=$OUTPUTFILE
@@ -105,28 +107,24 @@ if $CUT; then
 		python -c "import make_mesh; make_mesh.cut_img_mas(\"$IMAGE_NAME\",\"$OUTPUTFILE\",$SIZE,$AXIS,\"$TRIM_STARTING_FROM\")"
 		IMAGE_NAME=$OUTPUTFILE
 	fi
-	echo "Image cut"
+	echo "	✔️ Image cut."
 fi
 
-python make_mesh.py -i $IMAGE_NAME -m $SMOOTHED_MASK -t $TRESHHOLD
-
-echo "mesh created"
-
+OUT_MESHFILE="${IMAGE_NAME%%.nii*}_mesh.obj"
+echo "Creating \`${OUT_MESHFILE}\` mesh."
+python make_mesh.py -i $IMAGE_NAME -m $SMOOTHED_MASK -t $TRESHHOLD -o "${OUT_MESHFILE}"
+echo "	✔️ Medh created."
 
 #Decimate and smooth mesh using Blender
+RESULT="$(dirname ${OUT_MESHFILE})/ambmc2dsurqec_15micron_masked.obj"
 if $DECIMATE; then
-	MESH_NAME=$(find . -name '*.obj')
-	NAMES=($(echo $MESH_NAME | tr "\n" "\n"))
-
-	for NAME in "${NAMES[@]}"
-	do
-		# Blender may be installed with version number in binary
-		BLENDER_EXEC=$(find /usr/bin/ -regex ".*/blender-?[0-9]?\.?[0-9]?" | tail -1)
-		$BLENDER_EXEC -b -P decimate_mesh_blender.py -- -f $NAME -r 0.4 -i 2 -n 4 -l 0.5
-		#rm $NAME
-	done
-
-	echo mesh processed
+	# Blender may be installed with version number in binary
+	BLENDER_EXEC=$(find /usr/bin/ -regex ".*/blender-?[0-9]?\.?[0-9]?" | tail -1)
+	echo "Selected mesh \`${OUT_MESHFILE}\` for decimation."
+	$BLENDER_EXEC -b -P decimate_mesh_blender.py -- -f "${OUT_MESHFILE}" -r 0.4 -i 2 -n 4 -l 0.5 -o "${RESULT}"
+	echo "	✔️ Mesh decimated."
+else
+	mv "${OUT_MESHFILE}" "${RESULT}"		
 fi
 
 #Clean UP
