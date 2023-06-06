@@ -18,6 +18,10 @@ cp "${RDIR}/DSURQE_40micron_average.nii" "${WDIR}/dsurqec_40micron.nii"
 cp "${RDIR}/DSURQE_40micron_labels.nii" "${WDIR}/dsurqec_40micron_labels.nii"
 cp "${RDIR}/DSURQE_40micron_mask.nii" "${WDIR}/dsurqec_40micron_mask.nii"
 
+# Workaround required due to dataladification :(
+# https://github.com/datalad/datalad/issues/7408
+chmod 664 "${WDIR}/dsurqec_40micron{,labels,mask}.nii"
+
 
 # Set FSL Variable
 OLD_FSLOUTPUTTYPE=$FSLOUTPUTTYPE
