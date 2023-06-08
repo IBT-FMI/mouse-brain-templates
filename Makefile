@@ -68,7 +68,8 @@ publish: all copy
 release: code/versioncheck.sh
 	$(if $(VERSION),,$(error VERSION is not defined))
 	@code/versioncheck.sh $(VERSION)
-	tar cJf releases/mouse-brain-templates-${VERSION}.tar.xz mouse-brain-templates/
+	tar --exclude="*15*nii" -hcJf releases/mouse-brain-templates-${VERSION}.tar.xz mouse-brain-templates/
+	tar --exclude="dsurqe_labels.csv" --exclude="*15*obj" --exclude="*40*nii" --exclude="*20*nii" -hcJf releases/mouse-brain-templatesHD-${VERSION}.tar.xz mouse-brain-templates/
 
 clean:
 	rm work/ -rf
