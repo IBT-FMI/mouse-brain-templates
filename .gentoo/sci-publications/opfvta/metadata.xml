@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>horea.christ@gmail.com</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		Given the need for inter-subject and inter-study comparability, spatial
+		map registration to a standardized space is an indispensable part of
+		Magnetic Resonance Imaging (MRI). Mouse MRI workflows commonly utilize
+		high-level interfaces optimized for human data --- and adapt the data
+		to the interface rather than vice-versa. Quality control (QC) is
+		commonly performed by interactive operator inspection, making it
+		infrequent, open to bias, slow, and unreproducible. In this paper we
+		present a novel registration workflow accessible via both Bash and
+		Python, which uses the full flexibility of low-level interfaces from
+		one of the most popular normalization toolkits (ANTs). We provide an
+		optimized set of parameters for mouse brain registration, and propose
+		a standard space suited to harmonize mouse brain data across
+		modalities. Additionally, we present QC workflows, which can
+		automatically assess the registration quality of current as well as
+		past processed datasets. With regard to both structural and functional
+		considerations, we showcase the capabilities of this novel workflow
+		compared to a legacy workflow (representative of common practices
+		--- which we detail and comment).
+	</longdescription>
+	<use>
+		<flag name="scanner-data">Use primary data in proprietary scanner format.</flag>
+	</use>
+	<upstream>
+		<remote-id type="bitbucket">TheChymera/irsabi</remote-id>
+	</upstream>
+</pkgmetadata>

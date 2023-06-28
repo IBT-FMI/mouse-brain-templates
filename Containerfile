@@ -108,4 +108,6 @@ RUN printf '{ \
     } \
   ] \
 }' > /.reproenv.json
+RUN apt-get update -qq 
+RUN apt-get install make -qq 
 # End saving to specification to JSON.
